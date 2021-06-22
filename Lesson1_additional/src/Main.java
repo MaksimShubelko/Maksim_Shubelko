@@ -8,16 +8,14 @@ public class Main {
     public static void main(String[] args) {
         try {
             System.out.println("Введите через пробел целые числа:");
-            System.out.println("Количество положительных чисел = " + Calculator.calculate(Buffered.read_string()));
+            System.out.println("Количество положительных чисел = " + calculate(read_string()));
         } catch (IOException e) {
             e.printStackTrace();
         }
 
     }
 
-}
 
-class Buffered {
     public static String read_string ()
             throws IOException {
 
@@ -27,10 +25,6 @@ class Buffered {
 
         return numbers;
     }
-
-}
-
-class Calculator {
 
     public static int calculate(String numbers) {
 
@@ -42,11 +36,10 @@ class Calculator {
         Matcher matcher = pattern.matcher(numbers);
 
         while (matcher.find())
-                count += 1;
+            count += 1;
 
         return count;
     }
 
 }
-
 
