@@ -3,6 +3,9 @@ import java.util.Scanner;
 
 public class HomeWork {
 
+    final static String[] DEVS = {"программист", "программиста", "программистов"};
+    final static int MAX_VALUE_OF_PRIME_NUMBER = 1000;
+
     public static void main(String[] args) {
 
         printArray();
@@ -13,6 +16,8 @@ public class HomeWork {
         System.out.println(calculateCountOfOddElementsInMatrix(new int[]{1, 2, 3, 4, 5, 9}));
         calculateSumOfDiagonalElements();
         countDevs(103);
+        countDevs(11);
+        countDevs(13);
         foobar(6);
         foobar(10);
         foobar(15);
@@ -77,9 +82,8 @@ public class HomeWork {
     public static void countDevs(int count) {
 
         if (count > 0) {
-            final String[] DEVS = {"программист", "программиста", "программистов"};
 
-            if (count % 10 >= 5 || count % 10 == 0) {
+            if (count % 10 >= 5 || count % 10 == 0 || count / 10 == 1) {
                 System.out.printf("\n%d %s", count, DEVS[2]);
             } else {
                 if (count % 10 >= 2) {
@@ -187,13 +191,12 @@ public class HomeWork {
 
     public static void printPrimeNumbers() {
 
-        int MAX_VALUE_OF_PRIME_NUMBER = 1000;
         boolean isPrime;
 
         for (int i = 2; i <= MAX_VALUE_OF_PRIME_NUMBER; i++) {
             isPrime = true;
             for (int j = 2; j <= Math.sqrt(i); j++) {
-                if (Math.sqrt(i) % 1 == 0 || (i % j == 0 && j < i)) {
+                if (i % j == 0) {
                     isPrime = false;
                     break;
                 }
