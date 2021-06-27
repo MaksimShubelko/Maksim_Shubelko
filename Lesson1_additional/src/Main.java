@@ -1,52 +1,18 @@
-import java.io.IOException;
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 public class Main {
+
     public static void main(String[] args) {
-        try {
-            System.out.println("Введите через пробел целые числа:");
-            System.out.println("Количество положительных чисел = " + Calculator.calculate(Buffered.read_string()));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-    }
-
-}
-
-class Buffered {
-    public static String read_string ()
-            throws IOException {
-
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-
-        String numbers = reader.readLine();
-
-        return numbers;
-    }
-
-}
-
-class Calculator {
-
-    public static int calculate(String numbers) {
 
         int count = 0;
 
-        String[] subStr;
+        System.out.println("Введите в командную строку числа: ");
 
-        Pattern pattern = Pattern.compile(" ([0-9]+)");
-        Matcher matcher = pattern.matcher(numbers);
+        for (int i = 0; i < args.length; i++) {
+            int number = Integer.parseInt(args[i]);
 
-        while (matcher.find())
-                count += 1;
+            count += number > 0 ? 1 : 0;
+        }
 
-        return count;
+        System.out.println("Количество положительных чисел равно " + count);
+
     }
-
 }
-
-
