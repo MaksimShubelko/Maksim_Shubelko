@@ -12,10 +12,12 @@ public class Task2 {
     }
 
     public static int sum(int a, int b) {
+
         return Integer.MAX_VALUE - a > b ? a + b : -1;
     }
 
     public static int max(int a, int b) {
+
         return Math.max(a, b);
     }
 
@@ -35,11 +37,18 @@ public class Task2 {
     }
 
     public static int max(int[] array) {
-        int maxNumb = array[0];
-        for (int j : array)
-            maxNumb = Math.max(j, maxNumb);
 
-        return maxNumb;
+        if (array != null) {
+
+            int maxNumb = array[0];
+
+            for (int j : array) {
+                maxNumb = Math.max(j, maxNumb);
+            }
+
+            return maxNumb;
+        }
+        return -1;
     }
 
     public static double calculateHypotenuse(int a, int b) {
