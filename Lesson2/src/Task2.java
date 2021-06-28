@@ -19,26 +19,32 @@ public class Task2 {
         return Math.max(a, b);
     }
 
-
     public static double average(int[] array) {
-        double summary = 0;
-        for (int j : array) summary += j;
 
-        return summary / array.length;
+        if (array != null) {
 
+            double summary = 0;
+
+            for (int j : array) {
+                summary += j;
+            }
+
+            return summary / array.length;
+        }
+        return -1;
     }
 
     public static int max(int[] array) {
-        int max_numb = array[0];
+        int maxNumb = array[0];
         for (int j : array)
-            max_numb = Math.max(j, max_numb);
+            maxNumb = Math.max(j, maxNumb);
 
-        return max_numb;
+        return maxNumb;
     }
 
-    public  static  double calculateHypotenuse(int a, int b) {
+    public static double calculateHypotenuse(int a, int b) {
+
         return Math.sqrt(Math.pow(a, 2) + Math.pow(b, 2));
     }
-
 
 }

@@ -8,8 +8,9 @@ public class Task1 {
         for (int i = 0; i < args.length; i++) {
             int number = Integer.parseInt(args[i]);
 
-            count += number > 0 ? 1 : 0;
-
+            if (number > 0) {
+                count++;
+            }
 
         }
 
