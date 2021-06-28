@@ -83,7 +83,7 @@ public class HomeWork {
 
         if (count > 0) {
 
-            if (count % 10 >= 5 || count % 10 == 0 || count / 10 == 1) {
+            if (count % 10 >= 5 || count % 10 == 0 || count / 10 % 10 == 1) {
                 System.out.printf("\n%d %s", count, DEVS[2]);
             } else {
                 if (count % 10 >= 2) {
