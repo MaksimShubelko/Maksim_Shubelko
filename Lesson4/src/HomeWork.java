@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Homework {
+public class HomeWork {
 
 
     public static void main(String[] args) {
@@ -18,12 +18,10 @@ public class Homework {
         int[] arraySecond = {0, 4, 5, 0, 23, 77, 0, 77, 77, 101, 2, 7, 54, 54};
         System.out.println(findRecurringElements(arraySecond));
 
+        System.out.println(transposition());
+
     }
 
-
-    //        Задачи:
-//         1) Одноклеточная амеба каждые 3 часа делится на 2 клетки. Определить,
-//   сколько амеб будет через 3, 6, 9, 12,..., 24 часа
     public static StringBuilder divideAmoeba() {
 
         StringBuilder result = new StringBuilder();
@@ -62,7 +60,7 @@ public class Homework {
 
         Random random = new Random();
 
-        result.append("\nВаш массив изначально:");
+        result.append("\nВаш массив изначально:\n");
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array[i].length; j++) {
                 array[i][j] = random.nextInt(10);
@@ -118,7 +116,7 @@ public class Homework {
         Scanner scanner = new Scanner(System.in);
 
         StringBuilder result = new StringBuilder();
-        System.out.println("Введите число:");
+        System.out.print("Введите число:");
 
         while (!scanner.hasNextInt()) {
             System.out.println("Это не число!");
@@ -167,12 +165,12 @@ public class Homework {
 
         result.append("\nМассив нечётных чисел: ");
         for (int j : array) {
-            result.append(j).append(", ");
+            result.append(j).append(" ");
         }
 
         result.append("\nМассив нечётных чисел в обратном порядке: ");
         for (int i = array.length - 1; i >= 0; i--) {
-            result.append(array[i]).append(", ");
+            result.append(array[i]).append(" ");
         }
         return result;
     }
@@ -180,14 +178,14 @@ public class Homework {
     public static StringBuilder findIndexOfMaxElement() {
 
         Random random = new Random();
-        StringBuilder result = new StringBuilder();
+        StringBuilder result = new StringBuilder("Ваш массив вначале: ");
 
         int[] array = new int[12];
 
         System.out.println("\n");
         for (int i = 0; i < array.length; i++) {
             array[i] = random.nextInt(16);
-            result.append(array[i]).append(", ");
+            result.append(array[i]).append(" ");
 
         }
 
@@ -220,7 +218,7 @@ public class Homework {
         result.append("\nВаш массив вначале: ");
         for (int i = 0; i < array.length; i++) {
             array[i] = random.nextInt(21);
-            result.append(array[i]).append(", ");
+            result.append(array[i]).append(" ");
 
         }
 
@@ -234,7 +232,7 @@ public class Homework {
 
         result.append("\nВаш массив после манипуляции: ");
         for (int j : array) {
-            result.append(j).append(", ");
+            result.append(j).append(" ");
 
         }
 
@@ -249,7 +247,7 @@ public class Homework {
         if (array != null) {
             buffer = array[0];
             for (int i = 0; i < array.length; i++) {
-                result.append(array[i]).append(", ");
+                result.append(array[i]).append(" ");
                 if (array[i] > buffer) {
                     buffer = array[i];
                     index = i;
@@ -262,7 +260,7 @@ public class Homework {
             result.append("\nВаш массив после манипуляций:\n");
             System.out.println();
             for (int j : array) {
-                result.append(j).append(", ");
+                result.append(j).append(" ");
             }
             return result;
         }
@@ -271,16 +269,27 @@ public class Homework {
 
     public static StringBuilder findRecurringElements(int[] array) {
 
-        StringBuilder result = new StringBuilder("Повторяющиеся элементы массива: ");
-
         if (array != null) {
+
+            StringBuilder result = new StringBuilder("\nМассив изначально:\n");
+            StringBuilder buffer = new StringBuilder();
+
+            for (int i = 0; i < array.length; i++) {
+                result.append(array[i]).append(" ");
+            }
+
+            result.append("\nПовторяющиеся элементы массива: ");
+
             for (int i = 1; i < array.length; i++) {
                 for (int j = i - 1; j >= 0; j--) {
-                    if (array[i] == array[j] && !result.toString().contains(Integer.toString(array[i]))) {
-                        result.append(array[i]).append(" ");
+                    if (array[i] == array[j] && !buffer.toString().contains(Integer.toString(array[i]))) {
+                        buffer.append(array[i]).append(" ");
                     }
                 }
             }
+
+            result.append("\n").append(buffer);
+
             return result;
         }
         return null;
@@ -293,7 +302,7 @@ public class Homework {
         int buffer;
 
         StringBuilder result = new StringBuilder();
-        System.out.println("Введите размер матрицы:");
+        System.out.println("\nВведите размер матрицы:");
 
         while (!scanner.hasNextInt()) {
             System.out.println("Это не число!");
@@ -304,28 +313,34 @@ public class Homework {
 
         int[][] array = new int[size][size];
 
-        result.append("\nВаш массив изначально:");
+        result.append("\nВаш массив изначально:\n");
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array[i].length; j++) {
                 array[i][j] = random.nextInt(51);
-                result.append(" ").append(array[i][j]);
+                result.append(String.format("%5d", array[i][j]));
             }
             result.append("\n");
         }
 
-        result.append("\nВаш массив после транспонирования:");
+
         for (int j = 0; j < array.length; j++) {
             for (int i = j + 1; i < array[j].length; i++) {
                 buffer = array[i][j];
                 array[i][j] = array[j][i];
                 array[j][i] = buffer;
 
-
             }
-            result.append("\n");
+
         }
 
+        result.append("\nВаш массив после транспонирования:\n");
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array[i].length; j++) {
+                result.append(String.format("%5d", array[i][j]));
+            }
 
+            result.append("\n");
+        }
         return result;
     }
 }
