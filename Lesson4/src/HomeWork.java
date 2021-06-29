@@ -6,7 +6,7 @@ public class HomeWork {
     public static void main(String[] args) {
         System.out.println(divideAmoeba());
         System.out.println(summ(9, 0));
-        System.out.println(printElementsOfArray());
+        System.out.print(printElementsOfArray());
         System.out.println(calculateCountOfDigits());
         System.out.println(createArray());
         System.out.println(findIndexOfMaxElement());
@@ -108,8 +108,8 @@ public class HomeWork {
             }
             result.append("\n");
         }
-        return result;
 
+        return result;
     }
 
     public static StringBuilder calculateCountOfDigits() {
@@ -274,8 +274,8 @@ public class HomeWork {
             StringBuilder result = new StringBuilder("\nМассив изначально:\n");
             StringBuilder buffer = new StringBuilder();
 
-            for (int i = 0; i < array.length; i++) {
-                result.append(array[i]).append(" ");
+            for (int k : array) {
+                result.append(k).append(" ");
             }
 
             result.append("\nПовторяющиеся элементы массива: ");
@@ -334,9 +334,9 @@ public class HomeWork {
         }
 
         result.append("\nВаш массив после транспонирования:\n");
-        for (int i = 0; i < array.length; i++) {
-            for (int j = 0; j < array[i].length; j++) {
-                result.append(String.format("%5d", array[i][j]));
+        for (int[] ints : array) {
+            for (int anInt : ints) {
+                result.append(String.format("%5d", anInt));
             }
 
             result.append("\n");
