@@ -70,35 +70,11 @@ public class HomeWork {
         }
 
         result.append("\nТреугольники, состоящие из элементов массива:\n");
-        for (int k = 0; k < 4; k++) {
+        for (int k = 0; k < array.length; k++) {
             for (int i = 0; i < array.length; i++) {
                 for (int j = 0; j < array[i].length; j++) {
 
-                    boolean resultOfComparisons = false;
-
-                    switch (k) {
-                        case 0:
-                            if (i + j >= array.length - 1) {
-                                resultOfComparisons = true;
-                            }
-                            break;
-                        case 1:
-                            if (i >= j) {
-                                resultOfComparisons = true;
-                            }
-                            break;
-                        case 2:
-                            if (i <= j) {
-                                resultOfComparisons = true;
-                            }
-                            break;
-                        case 3:
-                            if (i + j <= array.length - 1) {
-                                resultOfComparisons = true;
-                            }
-                    }
-
-                    if (resultOfComparisons) {
+                    if (compareElements(k, array, i, j)) {
                         result.append(" ").append(array[i][j]);
                     } else {
                         result.append("  ");
@@ -110,6 +86,33 @@ public class HomeWork {
         }
 
         return result;
+    }
+
+    public static boolean compareElements(int typeOfTriangle, int[][] array, int firstIndex, int secondIndex) {
+        boolean resultOfComparisons = false;
+
+        switch (typeOfTriangle) {
+            case 0:
+                if (firstIndex + secondIndex >= array.length - 1) {
+                    resultOfComparisons = true;
+                }
+                break;
+            case 1:
+                if (firstIndex >= secondIndex) {
+                    resultOfComparisons = true;
+                }
+                break;
+            case 2:
+                if (firstIndex <= secondIndex) {
+                    resultOfComparisons = true;
+                }
+                break;
+            case 3:
+                if (firstIndex + secondIndex <= array.length - 1) {
+                    resultOfComparisons = true;
+                }
+        }
+        return resultOfComparisons;
     }
 
     public static StringBuilder calculateCountOfDigits() {
@@ -142,7 +145,7 @@ public class HomeWork {
 
         for (; ; ) {
             number /= 10;
-            countOfDigits += 1;
+            countOfDigits++;
             if (number == 0) {
                 break;
             }
