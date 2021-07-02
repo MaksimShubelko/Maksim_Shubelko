@@ -43,8 +43,7 @@ public class Computer {
                     scanner.next();
                 }
                 chose = scanner.nextInt();
-            }
-            while (chose != 0 && chose != 1);
+            } while (chose != 0 && chose != 1);
 
 
             if (chose == random.nextInt(2)) {
@@ -75,8 +74,7 @@ public class Computer {
                     scanner.next();
                 }
                 chose = scanner.nextInt();
-            }
-            while (chose != 0 && chose != 1);
+            } while (chose != 0 && chose != 1);
 
             if (chose == random.nextInt(2)) {
                 on();
