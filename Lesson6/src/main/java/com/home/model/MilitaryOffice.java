@@ -66,6 +66,7 @@ public class MilitaryOffice {
     }
 
     public void printCountOfFitPersonsWithTheName() {
+
         int count = 0;
 
         for (Person person : fitPersonList) {
@@ -78,6 +79,4 @@ public class MilitaryOffice {
         System.out.println("Count of fit persons with the name " + NAME + " is " + count);
 
     }
-
-
 }

@@ -1,6 +1,7 @@
 package com.home.model;
 
 public class Address {
+
     private String country;
     private String city;
 

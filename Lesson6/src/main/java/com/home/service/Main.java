@@ -12,6 +12,7 @@ import java.util.regex.Pattern;
 public class Main {
 
     public static void main(String[] args) {
+
         Scanner scanner = new Scanner(System.in);
         String enterCountry;
         String enterCity;
@@ -35,6 +36,7 @@ public class Main {
             switch (chose) {
                 case 1:
                     Person person = new Person();
+
                     while (true) {
 
                         System.out.println("Enter name:");
@@ -86,7 +88,6 @@ public class Main {
                         }
                     }
 
-
                     System.out.println("Enter age:");
                     int enterAge;
 
@@ -98,6 +99,7 @@ public class Main {
                         enterAge = scanner.nextInt();
 
                     } while (enterAge < 0 || enterAge > 130);
+
                     person.setAge(enterAge);
                     PersonRegistry.addPerson(person);
 
