@@ -4,41 +4,45 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MilitaryOffice {
-    public static final String COUNTRY = "Minsk";
-    public static final int MIN_AGE = 25;
-    public static final int MAX_AGE = 27;
-    public static final String NAME = "Alexander";
+    public final String COUNTRY = "Minsk";
+    public final int MIN_AGE = 25;
+    public final int MAX_AGE = 27;
+    public final String NAME = "Alexander";
 
-    static List<Person> personList = new ArrayList<>();
-    static List<Person> fitPersonList = new ArrayList<>();
+    private List<Person> personList;
+    private List<Person> fitPersonList = new ArrayList<>();
 
     public MilitaryOffice(List<Person> personList) {
-        MilitaryOffice.personList = PersonRegistry.personList;
+        this.personList = PersonRegistry.getPersonList();
     }
 
-    public static void findFit(List<Person> personList) {
+    public void findFit() {
+
         for (Person person : personList) {
 
             int age = person.getAge();
             String sex = person.getSex();
 
-            if (age >= 18 && age <= 27 && sex.equals("MALE")) {
-                fitPersonList.add(person);
+            if (age >= 18 && age <= 27 && sex.equals("Male")) {
+                this.fitPersonList.add(person);
+
             }
         }
     }
 
-    public static void printNameOfFitPersons() {
+    public void printNameOfFitPersons() {
+        System.out.println("Fit persons:");
         for (Person person : fitPersonList) {
             System.out.println(person.getName());
         }
     }
 
-    public static void calculateCountOfFitInMinsk() {
+    public void calculateCountOfFitInMinsk() {
 
         int count = 0;
 
         for (Person person : fitPersonList) {
+
             if (person.getAddress().getCity().equals(COUNTRY)) {
                 count++;
             }
@@ -47,7 +51,7 @@ public class MilitaryOffice {
         System.out.println("Count of fit persons in " + COUNTRY + " is " + count);
     }
 
-    public static void calculateCountOfFitPersonsInAgeRange() {
+    public void calculateCountOfFitPersonsInAgeRange() {
 
         int count = 0;
 
@@ -61,7 +65,7 @@ public class MilitaryOffice {
         System.out.println("Count of fit persons from " + MIN_AGE + " to " + MAX_AGE + " is " + count);
     }
 
-    public static void printCountOfFitPersonsWithTheName() {
+    public void printCountOfFitPersonsWithTheName() {
         int count = 0;
 
         for (Person person : fitPersonList) {
