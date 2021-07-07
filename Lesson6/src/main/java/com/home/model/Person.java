@@ -1,17 +1,13 @@
 package com.home.model;
 
 public class Person {
-    public static final String MALE = "male";
-    public static final String FEMALE = "female";
+    public static final String MALE = "Male";
+    public static final String FEMALE = "Female";
 
     private Address address;
     private String name;
     private String sex = FEMALE;
     private int age;
-
-    public Person() {
-
-    }
 
     public void setAddress(Address address) {
         this.address = address;
@@ -28,9 +24,7 @@ public class Person {
     }
 
     public void setAge(int age) {
-        if (age >= 0 && age <= 130) {
-            this.age = age;
-        }
+        this.age = age;
     }
 
     public Address getAddress() {
@@ -48,6 +42,7 @@ public class Person {
     public int getAge() {
         return age;
     }
+
 
     @Override
     public String toString() {
