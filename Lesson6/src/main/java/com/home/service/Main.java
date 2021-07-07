@@ -16,8 +16,6 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         String enterCountry;
         String enterCity;
-        String enterName;
-        String enterSex;
 
         int chose;
 
@@ -37,56 +35,20 @@ public class Main {
                 case 1:
                     Person person = new Person();
 
-                    while (true) {
+                    System.out.println("Enter name:");
+                    person.setName(enterString());
 
-                        System.out.println("Enter name:");
-                        enterName = scanner.next();
+                    System.out.println("Enter county:");
+                    enterCountry = enterString();
 
-                        if (compareRegular(enterName)) {
-                            person.setName(enterName);
-                            break;
-                        } else {
-                            System.out.println("Incorrect data!");
-                        }
-                    }
+                    System.out.println("Enter city:");
+                    enterCity = enterString();
 
-                    while (true) {
-                        System.out.println("Enter country:");
-                        enterCountry = scanner.next();
+                    Address address = new Address(enterCity, enterCountry);
+                    person.setAddress(address);
 
-                        if (compareRegular(enterCountry)) {
-                            break;
-                        } else {
-                            System.out.println("Incorrect data!");
-                        }
-                    }
-
-                    while (true) {
-
-                        System.out.println("Enter city:");
-                        enterCity = scanner.next();
-
-                        if (compareRegular(enterCity)) {
-                            Address address = new Address(enterCity, enterCountry);
-                            person.setAddress(address);
-                            break;
-                        } else {
-                            System.out.println("Incorrect data!");
-                        }
-                    }
-
-                    while (true) {
-
-                        System.out.println("Enter sex:");
-                        enterSex = scanner.next();
-
-                        if (compareRegular(enterSex)) {
-                            person.setSex(enterSex);
-                            break;
-                        } else {
-                            System.out.println("Incorrect data!");
-                        }
-                    }
+                    System.out.println("Enter sex:");
+                    person.setSex(enterString());
 
                     System.out.println("Enter age:");
                     int enterAge;
@@ -102,15 +64,20 @@ public class Main {
 
                     person.setAge(enterAge);
                     PersonRegistry.addPerson(person);
-
                     break;
                 case 2:
                     MilitaryOffice militaryOffice = new MilitaryOffice(PersonRegistry.getPersonList());
                     militaryOffice.findFit();
+
                     militaryOffice.printNameOfFitPersons();
-                    militaryOffice.calculateCountOfFitInMinsk();
                     militaryOffice.calculateCountOfFitPersonsInAgeRange();
-                    militaryOffice.printCountOfFitPersonsWithTheName();
+
+                    System.out.println("Enter name for finding");
+                    militaryOffice.printCountOfFitPersonsWithTheName(enterString());
+
+                    System.out.println("Enter city for finding");
+                    militaryOffice.calculateCountOfFitInCity(enterString());
+
                     break;
                 case 3:
                     return;
@@ -132,5 +99,21 @@ public class Main {
         }
 
         return resultOfCompare;
+    }
+
+    public static String enterString() {
+        Scanner scanner = new Scanner(System.in);
+        String string;
+
+        while (true) {
+            string = scanner.nextLine();
+
+            if (compareRegular(string)) {
+                return string;
+            } else {
+                System.out.println("Incorrect data!");
+            }
+        }
+
     }
 }
