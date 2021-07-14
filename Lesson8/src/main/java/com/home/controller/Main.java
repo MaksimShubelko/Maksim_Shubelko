@@ -97,7 +97,6 @@ public class Main {
                 default:
                     result = "Неправильные данные";
                     printer.printResult(result);
-
             }
         }
     }
