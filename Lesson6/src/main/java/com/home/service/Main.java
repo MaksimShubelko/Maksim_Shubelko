@@ -17,6 +17,8 @@ public class Main {
         String enterCountry;
         String enterCity;
 
+        PersonRegistry personRegistry = new PersonRegistry();
+
         int chose;
 
         while (true) {
@@ -63,10 +65,10 @@ public class Main {
                     } while (enterAge < 0 || enterAge > 130);
 
                     person.setAge(enterAge);
-                    PersonRegistry.addPerson(person);
+                    personRegistry.addPerson(person);
                     break;
                 case 2:
-                    MilitaryOffice militaryOffice = new MilitaryOffice(PersonRegistry.getPersonList());
+                    MilitaryOffice militaryOffice = new MilitaryOffice(personRegistry.getPersonList());
                     militaryOffice.findFit();
 
                     militaryOffice.printNameOfFitPersons();
@@ -77,7 +79,6 @@ public class Main {
 
                     System.out.println("Enter city for finding");
                     militaryOffice.calculateCountOfFitInCity(enterString());
-
                     break;
                 case 3:
                     return;

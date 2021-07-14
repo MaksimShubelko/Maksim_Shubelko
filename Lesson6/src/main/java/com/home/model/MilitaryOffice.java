@@ -11,10 +11,10 @@ public class MilitaryOffice {
     private List<Person> fitPersonList = new ArrayList<>();
 
     public MilitaryOffice(List<Person> personList) {
-        this.personList = PersonRegistry.getPersonList();
+        this.personList = personList;
     }
 
-    public void findFit() {
+    public List<Person> findFit() {
 
         for (Person person : personList) {
 
@@ -26,6 +26,7 @@ public class MilitaryOffice {
 
             }
         }
+        return fitPersonList;
     }
 
     public void printNameOfFitPersons() {
