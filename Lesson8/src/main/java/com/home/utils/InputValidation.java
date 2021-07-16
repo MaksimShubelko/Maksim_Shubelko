@@ -2,16 +2,15 @@ package com.home.utils;
 
 import java.util.Scanner;
 
-public class InputValidation {
+public final class InputValidation {
+    private static Scanner scanner = new Scanner(System.in);
 
-
-    public InputValidation() {
+    private InputValidation() {
     }
 
-    public int checkInt() {
-        Scanner scanner = new Scanner(System.in);
-
+    public static int checkInt() {
         int enterInt = 0;
+
         while (enterInt < 1) {
 
             while (!scanner.hasNextInt()) {
@@ -24,10 +23,9 @@ public class InputValidation {
         return enterInt;
     }
 
-    public double checkDouble() {
-        Scanner scanner = new Scanner(System.in);
-
+    public static double checkDouble() {
         double enterDouble = -1;
+
         while (enterDouble < 0) {
 
             while (!scanner.hasNextDouble()) {
@@ -40,9 +38,7 @@ public class InputValidation {
         return enterDouble;
     }
 
-    public boolean checkBoolean() {
-        Scanner scanner = new Scanner(System.in);
-
+    public static boolean checkBoolean() {
         boolean enterBoolean;
 
         while (!scanner.hasNextBoolean()) {
