@@ -5,7 +5,7 @@ public final class Printer {
 
     }
 
-    public void printResult(String result) {
+    public static void printResult(String result) {
         System.out.println(result);
     }
 }
