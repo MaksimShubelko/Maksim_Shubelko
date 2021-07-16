@@ -9,8 +9,6 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        InputValidation inputValidation = new InputValidation();
-        Printer printer = new Printer();
         int chose;
         String result;
 
@@ -18,7 +16,7 @@ public class Main {
 
         while (true) {
             System.out.println("Хотите создать машину?\n1 -- да\n2 -- нет");
-            chose = inputValidation.checkInt();
+            chose = InputValidation.checkInt();
             switch (chose) {
                 case 1:
                     System.out.println("Создайте двигатель! Введите тип:");
@@ -26,14 +24,14 @@ public class Main {
                     Car.Engine engine = new Car.Engine(engineType);
 
                     System.out.println("Создайте бензобак! Введите максимальный объём:");
-                    int maxFuelLevel = inputValidation.checkInt();
+                    int maxFuelLevel = InputValidation.checkInt();
                     Car.GasTank gasTank = new Car.GasTank(maxFuelLevel);
 
                     System.out.println("Введите расстояние, которое машина проезжает каждый раз:");
-                    int distance = inputValidation.checkInt();
+                    int distance = InputValidation.checkInt();
 
                     System.out.println("Введите затраты топлива на 1 поездку");
-                    double fuelConsumption = inputValidation.checkDouble();
+                    double fuelConsumption = InputValidation.checkDouble();
 
                     Car car = new Car(engine, gasTank, distance, fuelConsumption);
                     carMenu(car);
@@ -42,7 +40,7 @@ public class Main {
                     return;
                 default:
                     result = "Неправильные данные";
-                    printer.printResult(result);
+                    Printer.printResult(result);
             }
         }
 
@@ -50,8 +48,6 @@ public class Main {
     }
 
     public static void carMenu(Car car) {
-        InputValidation inputValidation = new InputValidation();
-        Printer printer = new Printer();
         Scanner scanner = new Scanner(System.in);
 
         String result;
@@ -66,7 +62,7 @@ public class Main {
                     "3 -- ехать\n4 -- посмотреть пробег\n5 -- посмотреть кол-во топлива\n" +
                     "6 -- заправить\n7 -- добавить больше данных о машине\n" +
                     "8 -- посмотреть данные о транспорте\n9 -- выход");
-            chose = inputValidation.checkInt();
+            chose = InputValidation.checkInt();
 
             switch (chose) {
                 case 1:
@@ -93,11 +89,11 @@ public class Main {
                     car.setCarModel(carModel);
 
                     System.out.println("Введите год выпуска:");
-                    yearRelease = inputValidation.checkInt();
+                    yearRelease = InputValidation.checkInt();
                     car.setYearRelease(yearRelease);
 
                     System.out.println("Введите пробег:");
-                    totalDistance = inputValidation.checkDouble();
+                    totalDistance = InputValidation.checkDouble();
                     car.setTotalDistance(totalDistance);
                     result = "Данные добавлены";
                     break;
@@ -109,7 +105,7 @@ public class Main {
                 default:
                     result = "Неправильные данные";
             }
-            printer.printResult(result);
+            Printer.printResult(result);
         }
     }
 }

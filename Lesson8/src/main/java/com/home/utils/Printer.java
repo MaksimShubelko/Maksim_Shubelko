@@ -1,7 +1,7 @@
 package com.home.utils;
 
-public class Printer {
-    public Printer() {
+public final class Printer {
+    private Printer() {
 
     }
 
