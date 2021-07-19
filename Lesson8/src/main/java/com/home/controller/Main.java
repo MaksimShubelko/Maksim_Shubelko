@@ -13,28 +13,28 @@ public class Main {
         String result;
 
         Scanner scanner = new Scanner(System.in);
-
         while (true) {
             System.out.println("Хотите создать машину?\n1 -- да\n2 -- нет");
             chose = InputValidation.checkInt();
             switch (chose) {
                 case 1:
+                    Car car = new Car();
                     System.out.println("Создайте двигатель! Введите тип:");
                     String engineType = scanner.nextLine();
-                    Car.Engine engine = new Car.Engine(engineType);
+                    Car.Engine engine = car.new Engine(engineType);
 
                     System.out.println("Создайте бензобак! Введите максимальный объём:");
                     int maxFuelLevel = InputValidation.checkInt();
-                    Car.GasTank gasTank = new Car.GasTank(maxFuelLevel);
-
+                    Car.GasTank gasTank = car.new GasTank(maxFuelLevel);
                     System.out.println("Введите расстояние, которое машина проезжает каждый раз:");
                     int distance = InputValidation.checkInt();
-
                     System.out.println("Введите затраты топлива на 1 поездку");
                     double fuelConsumption = InputValidation.checkDouble();
-
-                    Car car = new Car(engine, gasTank, distance, fuelConsumption);
+                    car.setTotalDistance(distance);
+                    car.setFuelConsumption(fuelConsumption);
                     carMenu(car);
+                    car.setEngine(engine);
+                    car.setGasTank(gasTank);
                     break;
                 case 2:
                     return;
@@ -43,8 +43,6 @@ public class Main {
                     Printer.printResult(result);
             }
         }
-
-
     }
 
     public static void carMenu(Car car) {

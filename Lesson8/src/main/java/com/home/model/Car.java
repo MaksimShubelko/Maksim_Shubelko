@@ -1,6 +1,8 @@
 package com.home.model;
 
 import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 import lombok.ToString;
 
 @ToString
@@ -10,22 +12,21 @@ public class Car {
     private double totalDistance;
     private boolean isStarted;
     private double fuelLevel;
-    private final double distance;
-    private final double fuelConsumption;
+    private double distance;
+    private double fuelConsumption;
+    private Engine engine;
 
-    private final Engine engine;
-    private final GasTank gasTank;
+    private GasTank gasTank;
 
-    public Car(Engine engine, GasTank gasTank, double distance, double fuelConsumption) {
-        this.engine = engine;
-        this.gasTank = gasTank;
-        this.distance = distance;
-        this.fuelConsumption = fuelConsumption;
+    public Car() {
+
     }
 
     @ToString
     @AllArgsConstructor
-    public static class Engine {
+    @Getter
+    @Setter
+    public class Engine {
         private String engineType;
 
         public void setEngineType(String engineType) {
@@ -34,13 +35,11 @@ public class Car {
     }
 
     @ToString
-    public static class GasTank {
+    @Getter
+    @Setter
+    public class GasTank {
         private double fuelLevel;
         private int maxFuelLevel;
-
-        {
-            maxFuelLevel = 0;
-        }
 
         public GasTank(double fuelLevel) {
             this.fuelLevel = fuelLevel;
@@ -132,6 +131,18 @@ public class Car {
 
     public double getTotalDistance() {
         return totalDistance;
+    }
+
+    public void setFuelConsumption(double fuelConsumption) {
+        this.fuelConsumption = fuelConsumption;
+    }
+
+    public void setEngine(Engine engine) {
+        this.engine = engine;
+    }
+
+    public void setGasTank(GasTank gasTank) {
+        this.gasTank = gasTank;
     }
 
     public void setTotalDistance(double totalDistance) {
