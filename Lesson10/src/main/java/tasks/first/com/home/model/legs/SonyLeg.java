@@ -3,9 +3,9 @@ package tasks.first.com.home.model.legs;
 import tasks.first.com.home.utils.Actions;
 
 public class SonyLeg implements ILeg {
-    private int price;
+    private double price;
 
-    public SonyLeg(int price) {
+    public SonyLeg(double price) {
         this.price = price;
     }
 
@@ -18,7 +18,7 @@ public class SonyLeg implements ILeg {
     }
 
     @Override
-    public int getPrice() {
+    public double getPrice() {
         return price;
     }
 }

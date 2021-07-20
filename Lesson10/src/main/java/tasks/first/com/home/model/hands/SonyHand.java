@@ -3,9 +3,9 @@ package tasks.first.com.home.model.hands;
 import tasks.first.com.home.utils.Actions;
 
 public class SonyHand implements IHand {
-    private int price;
+    private double price;
 
-    public SonyHand(int price) {
+    public SonyHand(double price) {
         this.price = price;
     }
 
@@ -18,7 +18,7 @@ public class SonyHand implements IHand {
     }
 
     @Override
-    public int getPrice() {
+    public double getPrice() {
         return price;
     }
 }

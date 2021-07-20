@@ -3,9 +3,9 @@ package tasks.first.com.home.model.heads;
 import tasks.first.com.home.utils.Actions;
 
 public class ToshibaHead implements IHead {
-    private int price;
+    private double price;
 
-    public ToshibaHead(int price) {
+    public ToshibaHead(double price) {
         this.price = price;
     }
 
@@ -18,7 +18,7 @@ public class ToshibaHead implements IHead {
     }
 
     @Override
-    public int getPrice() {
+    public double getPrice() {
         return price;
     }
 }
