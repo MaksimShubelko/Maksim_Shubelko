@@ -16,6 +16,9 @@
     <packaging>pom</packaging>
 
     <modules>
+        <module>Lesson6/pop.xml</module>
+        <module>Lesson7/pom.tld</module>
+        <module>Lesson8/pom.xml</module>
         <module>Lesson6/pom.tld</module>
         <module>Lesson7/pom.tld</module>
     </modules>
