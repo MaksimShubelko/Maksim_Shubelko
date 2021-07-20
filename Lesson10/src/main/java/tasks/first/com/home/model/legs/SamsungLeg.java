@@ -1,15 +1,15 @@
 package tasks.first.com.home.model.legs;
 
-import lombok.Getter;
-import lombok.Setter;
 import tasks.first.com.home.utils.Actions;
 
-@Setter
-@Getter
-public class SamsungLeg extends Leg implements ILeg {
+public class SamsungLeg implements ILeg {
+    private int price;
 
-    public SamsungLeg(double price) {
-        super(price);
+    public SamsungLeg(int price) {
+        this.price = price;
+    }
+
+    public SamsungLeg() {
     }
 
     @Override
@@ -17,6 +17,9 @@ public class SamsungLeg extends Leg implements ILeg {
         return Actions.SAMSUNG_LEG_MOVES.getAction();
     }
 
-
+    @Override
+    public int getPrice() {
+        return price;
+    }
 }
 

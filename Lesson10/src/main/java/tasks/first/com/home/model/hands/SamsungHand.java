@@ -1,16 +1,15 @@
 package tasks.first.com.home.model.hands;
 
-import lombok.Getter;
-import lombok.Setter;
 import tasks.first.com.home.utils.Actions;
-import tasks.first.com.home.utils.Types;
 
-@Setter
-@Getter
-public class SamsungHand extends Hand implements IHand {
+public class SamsungHand implements IHand {
+    private int price;
 
-    public SamsungHand(double price) {
-        super(price);
+    public SamsungHand(int price) {
+        this.price = price;
+    }
+
+    public SamsungHand() {
     }
 
     @Override
@@ -19,10 +18,8 @@ public class SamsungHand extends Hand implements IHand {
     }
 
     @Override
-    public int getType() {
-        return Types.IHand.ordinal();
+    public int getPrice() {
+        return price;
     }
-
-
 }
 

@@ -1,54 +1,48 @@
 package tasks.first.com.home.model;
 
 import lombok.Getter;
+import lombok.Setter;
 import lombok.ToString;
 import tasks.first.com.home.model.hands.IHand;
 import tasks.first.com.home.model.heads.IHead;
 import tasks.first.com.home.model.legs.ILeg;
-import tasks.first.com.home.utils.IRobotsPart;
-import tasks.first.com.home.utils.Printer;
+import tasks.first.com.home.utils.IRobotParts;
 
-import java.util.HashSet;
+import java.util.ArrayList;
 
 @Getter
+@Setter
 @ToString(callSuper = true)
 public class Robot implements IRobot {
-    private HashSet<IRobotsPart> parts = new HashSet<>();
+    private IRobotParts head;
+    private IRobotParts hand;
+    private IRobotParts leg;
+
+    public Robot(IRobotParts head, IRobotParts hand, IRobotParts leg) {
+        this.head = head;
+        this.hand = hand;
+        this.leg = leg;
+    }
 
     public Robot() {
     }
 
     @Override
-    public void action() {
-        int type;
-        for (IRobotsPart robotPart : parts) {
-            type = robotPart.getType();
-            switch (type) {
-                case 0:
-                    Printer.print(((IHand) robotPart).upHand());
-                    break;
-                case 1:
-                    Printer.print(((IHead) robotPart).speak());
-                    break;
-                case 2:
-                    Printer.print(((ILeg) robotPart).step());
-                    break;
-                default:
-                    Printer.print("Некорректный тип");
+    public void action(ArrayList<IRobotParts> parts) {
+        for (IRobotParts robotPart : parts) {
+            if (robotPart instanceof IHead) {
+                ((IHead) robotPart).speak();
+            } else {
+                if (robotPart instanceof ILeg) {
+                    ((ILeg) robotPart).step();
+                } else {
+                    ((IHand) robotPart).upHand();
+                }
             }
         }
     }
 
-    public double getPrice() {
-        double price = 0;
-
-        for (IRobotsPart part : parts) {
-            price += part.getPrice();
-        }
-        return price;
-    }
-
-    public void setParts(IRobotsPart part) {
-        this.parts.add(part);
+    public int getPrice() {
+        return head.getPrice() + hand.getPrice() + leg.getPrice();
     }
 }

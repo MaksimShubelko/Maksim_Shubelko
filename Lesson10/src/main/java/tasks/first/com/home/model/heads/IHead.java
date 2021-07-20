@@ -1,5 +1,7 @@
 package tasks.first.com.home.model.heads;
 
-public interface IHead {
+import tasks.first.com.home.utils.IRobotParts;
+
+public interface IHead extends IRobotParts {
     String speak();
 }

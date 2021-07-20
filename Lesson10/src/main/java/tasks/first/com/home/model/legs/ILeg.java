@@ -1,5 +1,7 @@
 package tasks.first.com.home.model.legs;
 
-public interface ILeg {
+import tasks.first.com.home.utils.IRobotParts;
+
+public interface ILeg extends IRobotParts {
     String step();
 }
