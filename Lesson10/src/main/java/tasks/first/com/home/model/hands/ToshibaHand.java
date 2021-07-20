@@ -3,9 +3,9 @@ package tasks.first.com.home.model.hands;
 import tasks.first.com.home.utils.Actions;
 
 public class ToshibaHand implements IHand {
-    private int price;
+    private double price;
 
-    public ToshibaHand(int price) {
+    public ToshibaHand(double price) {
         this.price = price;
     }
 
@@ -18,7 +18,7 @@ public class ToshibaHand implements IHand {
     }
 
     @Override
-    public int getPrice() {
+    public double getPrice() {
         return price;
     }
 }
