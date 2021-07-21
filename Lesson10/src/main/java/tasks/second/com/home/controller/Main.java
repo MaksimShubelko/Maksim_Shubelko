@@ -43,13 +43,13 @@ public class Main {
             chose = InputValidation.checkInt();
             switch (chose) {
                 case 1:
-                    person.setClothes(createJacket());
+                    person.setJacket(createJacket());
                     break;
                 case 2:
-                    person.setClothes(createShoes());
+                    person.setShoes(createShoes());
                     break;
                 case 3:
-                    person.setClothes(createPants());
+                    person.setPants(createPants());
                     break;
                 case 4:
                     loop = false;
@@ -60,9 +60,9 @@ public class Main {
         }
     }
 
-    public static IClothes createJacket() {
+    public static IJacket createJacket() {
         int chose;
-        IClothes jacket = null;
+        IJacket jacket = null;
 
         Printer.print("Выберите фирму:\n1 -- Василёк\n2 -- Купалинка\n3 -- выход");
         chose = InputValidation.checkInt();
@@ -81,9 +81,9 @@ public class Main {
         return jacket;
     }
 
-    public static IClothes createShoes() {
+    public static IShoes createShoes() {
         int chose;
-        IClothes shoes = null;
+        IShoes shoes = null;
 
         Printer.print("Выберите фирму:\n1 -- Василёк\n2 -- Купалинка\n3 -- выход");
         chose = InputValidation.checkInt();
@@ -102,9 +102,9 @@ public class Main {
         return shoes;
     }
 
-    public static IClothes createPants() {
+    public static IPants createPants() {
         int chose;
-        IClothes pants = null;
+        IPants pants = null;
 
         Printer.print("Выберите фирму:\n1 -- Василёк\n2 -- Купалинка\n3 -- выход");
         chose = InputValidation.checkInt();

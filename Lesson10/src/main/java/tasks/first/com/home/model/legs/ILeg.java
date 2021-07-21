@@ -1,12 +1,7 @@
 package tasks.first.com.home.model.legs;
 
-import tasks.first.com.home.utils.IRobotParts;
-import tasks.first.com.home.utils.Types;
-
-public interface ILeg extends IRobotParts {
+public interface ILeg {
     String step();
 
-    default int getType() {
-        return Types.ILeg.ordinal();
-    }
+    double getPrice();
 }
