@@ -7,7 +7,6 @@ import java.util.ArrayList;
 
 @Setter
 public final class Seller {
-    private ArrayList<Robot> robots;
 
     private Seller() {
 
