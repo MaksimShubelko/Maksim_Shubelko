@@ -1,9 +1,9 @@
-package tasks.first.com.home.utils;
+package tasks.third.com.home.utils;
 
 import java.util.Scanner;
 
 public final class InputValidation {
-    private static final Scanner scanner = new Scanner(System.in);
+    private static Scanner scanner = new Scanner(System.in);
 
     private InputValidation() {
 
