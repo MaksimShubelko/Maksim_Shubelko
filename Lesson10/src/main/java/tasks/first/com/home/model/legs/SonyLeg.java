@@ -1,25 +1,22 @@
 package tasks.first.com.home.model.legs;
 
+import lombok.Getter;
+import lombok.Setter;
 import tasks.first.com.home.utils.Actions;
 
-public class SonyLeg implements ILeg {
-    private double price;
-
+@Getter
+@Setter
+public class SonyLeg extends Leg implements ILeg {
     public SonyLeg(double price) {
-        this.price = price;
+        super(price);
     }
 
-    public SonyLeg() {
-    }
 
     @Override
     public String step() {
         return Actions.SONY_LEG_MOVES.getAction();
     }
 
-    @Override
-    public double getPrice() {
-        return price;
-    }
+
 }
 
