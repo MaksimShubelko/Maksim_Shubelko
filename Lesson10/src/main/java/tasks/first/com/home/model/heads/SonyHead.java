@@ -1,15 +1,16 @@
 package tasks.first.com.home.model.heads;
 
+import lombok.Getter;
+import lombok.Setter;
 import tasks.first.com.home.utils.Actions;
 
-public class SonyHead implements IHead {
+@Setter
+@Getter
+public class SonyHead extends Head implements IHead {
     private double price;
 
     public SonyHead(double price) {
-        this.price = price;
-    }
-
-    public SonyHead() {
+        super(price);
     }
 
     @Override
@@ -17,8 +18,5 @@ public class SonyHead implements IHead {
         return Actions.SONY_HEAD_SAYS.getAction();
     }
 
-    @Override
-    public double getPrice() {
-        return price;
-    }
+
 }

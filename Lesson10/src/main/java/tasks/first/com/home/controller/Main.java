@@ -1,22 +1,16 @@
 package tasks.first.com.home.controller;
 
 import tasks.first.com.home.model.Robot;
-import tasks.first.com.home.model.hands.IHand;
 import tasks.first.com.home.model.hands.SamsungHand;
 import tasks.first.com.home.model.hands.SonyHand;
 import tasks.first.com.home.model.hands.ToshibaHand;
-import tasks.first.com.home.model.heads.IHead;
 import tasks.first.com.home.model.heads.SamsungHead;
 import tasks.first.com.home.model.heads.SonyHead;
 import tasks.first.com.home.model.heads.ToshibaHead;
-import tasks.first.com.home.model.legs.ILeg;
 import tasks.first.com.home.model.legs.SamsungLeg;
 import tasks.first.com.home.model.legs.SonyLeg;
 import tasks.first.com.home.model.legs.ToshibaLeg;
-import tasks.first.com.home.utils.Fitter;
-import tasks.first.com.home.utils.InputValidation;
-import tasks.first.com.home.utils.Printer;
-import tasks.first.com.home.utils.Seller;
+import tasks.first.com.home.utils.*;
 
 import java.util.ArrayList;
 
@@ -67,13 +61,13 @@ public class Main {
             chose = InputValidation.checkInt();
             switch (chose) {
                 case 1:
-                    robot.setHand(createHand());
+                    robot.setParts(createHand());
                     break;
                 case 2:
-                    robot.setLeg(createLeg());
+                    robot.setParts(createLeg());
                     break;
                 case 3:
-                    robot.setHead(createHead());
+                    robot.setParts(createHead());
                     break;
                 case 4:
                     loop = false;
@@ -85,10 +79,10 @@ public class Main {
         fitter.addRobot(robot);
     }
 
-    public static ILeg createLeg() {
+    public static IRobotsPart createLeg() {
         double price;
         int chose;
-        ILeg leg;
+        IRobotsPart leg;
 
         while (true) {
             Printer.print("Введите цену ноги");
@@ -114,10 +108,10 @@ public class Main {
         return leg;
     }
 
-    public static IHead createHead() {
+    public static IRobotsPart createHead() {
         double price;
         int chose;
-        IHead head;
+        IRobotsPart head;
 
         while (true) {
             Printer.print("Введите цену головы");
@@ -143,10 +137,10 @@ public class Main {
         return head;
     }
 
-    public static IHand createHand() {
+    public static IRobotsPart createHand() {
         double price;
         int chose;
-        IHand hand;
+        IRobotsPart hand;
 
         while (true) {
             Printer.print("Введите цену руки");

@@ -1,15 +1,15 @@
 package tasks.first.com.home.model.heads;
 
+import lombok.Getter;
+import lombok.Setter;
 import tasks.first.com.home.utils.Actions;
 
-public class ToshibaHead implements IHead {
-    private double price;
+@Setter
+@Getter
+public class ToshibaHead extends Head implements IHead {
 
     public ToshibaHead(double price) {
-        this.price = price;
-    }
-
-    public ToshibaHead() {
+        super(price);
     }
 
     @Override
@@ -17,8 +17,5 @@ public class ToshibaHead implements IHead {
         return Actions.TOSHIBA_HEAD_SAYS.getAction();
     }
 
-    @Override
-    public double getPrice() {
-        return price;
-    }
+
 }

@@ -1,27 +1,27 @@
 package tasks.second.com.home.model;
 
-import lombok.Setter;
 import lombok.ToString;
-import tasks.second.com.home.clothes.IJacket;
-import tasks.second.com.home.clothes.IPants;
-import tasks.second.com.home.clothes.IShoes;
+import tasks.second.com.home.clothes.IClothes;
 
-@Setter
+import java.util.HashSet;
+
 @ToString
 public class Person {
-    private IJacket jacket;
-    private IPants pants;
-    private IShoes shoes;
+    private HashSet<IClothes> clothes = new HashSet<>();
 
     public void takeOff() {
-        jacket.takeOff();
-        pants.takeOff();
-        shoes.takeOff();
+        for (IClothes clothes : clothes) {
+            clothes.takeOff();
+        }
     }
 
     public void takeOn() {
-        jacket.takeOn();
-        pants.takeOn();
-        shoes.takeOn();
+        for (IClothes clothes : clothes) {
+            clothes.takeOn();
+        }
+    }
+
+    public void setClothes(IClothes clothes) {
+        this.clothes.add(clothes);
     }
 }
