@@ -5,5 +5,4 @@ public interface IClothes {
 
     void takeOn();
 
-    String showResult();
 }

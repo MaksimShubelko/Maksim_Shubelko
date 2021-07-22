@@ -1,15 +1,15 @@
 package tasks.first.com.home.model.heads;
 
+import lombok.Getter;
+import lombok.Setter;
 import tasks.first.com.home.utils.Actions;
 
-public class SamsungHead implements IHead {
-    private double price;
+@Setter
+@Getter
+public class SamsungHead extends Head implements IHead {
 
     public SamsungHead(double price) {
-        this.price = price;
-    }
-
-    public SamsungHead() {
+        super(price);
     }
 
     @Override
@@ -17,8 +17,5 @@ public class SamsungHead implements IHead {
         return Actions.SAMSUNG_HEAD_SAYS.getAction();
     }
 
-    @Override
-    public double getPrice() {
-        return price;
-    }
+
 }
