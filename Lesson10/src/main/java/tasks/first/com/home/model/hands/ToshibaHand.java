@@ -1,15 +1,16 @@
 package tasks.first.com.home.model.hands;
 
+import lombok.Getter;
+import lombok.Setter;
 import tasks.first.com.home.utils.Actions;
+import tasks.first.com.home.utils.Types;
 
-public class ToshibaHand implements IHand {
-    private double price;
+@Getter
+@Setter
+public class ToshibaHand extends Hand implements IHand {
 
     public ToshibaHand(double price) {
-        this.price = price;
-    }
-
-    public ToshibaHand() {
+        super(price);
     }
 
     @Override
@@ -18,8 +19,10 @@ public class ToshibaHand implements IHand {
     }
 
     @Override
-    public double getPrice() {
-        return price;
+    public int getType() {
+        return Types.IHand.ordinal();
     }
+
+
 }
 
