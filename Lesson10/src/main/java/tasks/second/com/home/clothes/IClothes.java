@@ -4,5 +4,4 @@ public interface IClothes {
     void takeOff();
 
     void takeOn();
-
 }

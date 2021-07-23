@@ -3,7 +3,7 @@ package tasks.second.com.home.clothes;
 
 import tasks.second.com.home.utils.Hash;
 
-public class Pants implements IClothes {
+public abstract class Pants implements IClothes {
     public boolean equals(Object o) {
         return this.hashCode() == o.hashCode();
     }
