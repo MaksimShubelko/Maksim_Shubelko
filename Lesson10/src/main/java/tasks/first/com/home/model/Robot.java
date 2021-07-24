@@ -1,29 +1,27 @@
 package tasks.first.com.home.model;
 
 import lombok.Getter;
-import lombok.Setter;
 import lombok.ToString;
 import tasks.first.com.home.model.hands.IHand;
 import tasks.first.com.home.model.heads.IHead;
 import tasks.first.com.home.model.legs.ILeg;
-import tasks.first.com.home.utils.IRobotParts;
+import tasks.first.com.home.utils.IRobotsPart;
 import tasks.first.com.home.utils.Printer;
 
-import java.util.ArrayList;
+import java.util.HashSet;
 
 @Getter
-@Setter
 @ToString(callSuper = true)
 public class Robot implements IRobot {
-    private ArrayList<IRobotParts> parts = new ArrayList<>();
+    private HashSet<IRobotsPart> parts = new HashSet<>();
 
     public Robot() {
     }
 
     @Override
-    public void action(ArrayList<IRobotParts> parts) {
+    public void action() {
         int type;
-        for (IRobotParts robotPart : parts) {
+        for (IRobotsPart robotPart : parts) {
             type = robotPart.getType();
             switch (type) {
                 case 0:
@@ -43,9 +41,14 @@ public class Robot implements IRobot {
 
     public double getPrice() {
         double price = 0;
-        for (IRobotParts robotPart : parts) {
-            price += robotPart.getPrice();
+
+        for (IRobotsPart part : parts) {
+            price += part.getPrice();
         }
         return price;
+    }
+
+    public void setParts(IRobotsPart part) {
+        this.parts.add(part);
     }
 }

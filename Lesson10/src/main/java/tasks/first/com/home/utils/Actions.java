@@ -4,9 +4,9 @@ import lombok.Getter;
 
 @Getter
 public enum Actions {
-    SONY_HEAD_SAYS("Sony head"),
-    SAMSUNG_HEAD_SAYS("Samsung head"),
-    TOSHIBA_HEAD_SAYS("Toshiba head"),
+    SONY_HEAD_SAYS("Sony head say's"),
+    SAMSUNG_HEAD_SAYS("Samsung head say's"),
+    TOSHIBA_HEAD_SAYS("Toshiba head say's"),
     SONY_HAND_MOVES("Sony hand move's"),
     SAMSUNG_HAND_MOVES("Samsung hand move's"),
     TOSHIBA_HAND_MOVES("Toshiba hand move's"),

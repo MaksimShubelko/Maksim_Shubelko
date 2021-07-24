@@ -15,9 +15,7 @@ import tasks.first.com.home.utils.*;
 import java.util.ArrayList;
 
 public class Main {
-    private static Fitter fitter = new Fitter();
-    private static ArrayList<Robot> robots;
-    private static ArrayList<IRobotParts> parts;
+    private static final Fitter fitter = new Fitter();
 
     public static void main(String[] args) {
         int chose;
@@ -45,28 +43,46 @@ public class Main {
         int robotNumber;
         Printer.print("Ведите номер робота");
         robotNumber = InputValidation.checkInt();
-        robots = fitter.getRobots();
+        ArrayList<Robot> robots = fitter.getRobots();
         if (robotNumber <= robots.size()) {
-            robots.get(robotNumber - 1).action(fitter.getParts());
+            robots.get(robotNumber - 1).action();
         } else {
             Printer.print("Такого робота нет");
         }
-
     }
 
     public static void createRobotsParts() {
+        int chose;
+        boolean loop = true;
+
         Robot robot = new Robot();
-        parts.add(createHand());
-        parts.add(createHead());
-        parts.add(createLeg());
-        robot.setParts(parts);
+        while (loop) {
+            Printer.print("Что добавим?\n1 -- руку\n2 -- ногу\n3 -- голову\n4 -- выход");
+            chose = InputValidation.checkInt();
+            switch (chose) {
+                case 1:
+                    robot.setParts(createHand());
+                    break;
+                case 2:
+                    robot.setParts(createLeg());
+                    break;
+                case 3:
+                    robot.setParts(createHead());
+                    break;
+                case 4:
+                    loop = false;
+                    break;
+                default:
+                    Printer.print("Некорректные данные");
+            }
+        }
         fitter.addRobot(robot);
     }
 
-    public static IRobotParts createLeg() {
+    public static IRobotsPart createLeg() {
         double price;
         int chose;
-        IRobotParts leg = null;
+        IRobotsPart leg;
 
         while (true) {
             Printer.print("Введите цену ноги");
@@ -89,14 +105,13 @@ public class Main {
             }
             break;
         }
-        fitter.addPart((IRobotParts) leg);
         return leg;
     }
 
-    public static IRobotParts createHead() {
+    public static IRobotsPart createHead() {
         double price;
         int chose;
-        IRobotParts head = null;
+        IRobotsPart head;
 
         while (true) {
             Printer.print("Введите цену головы");
@@ -119,14 +134,13 @@ public class Main {
             }
             break;
         }
-        fitter.addPart((IRobotParts) head);
         return head;
     }
 
-    public static IRobotParts createHand() {
+    public static IRobotsPart createHand() {
         double price;
         int chose;
-        IRobotParts hand = null;
+        IRobotsPart hand;
 
         while (true) {
             Printer.print("Введите цену руки");
@@ -149,7 +163,6 @@ public class Main {
             }
             break;
         }
-        fitter.addPart((IRobotParts) hand);
         return hand;
     }
 }

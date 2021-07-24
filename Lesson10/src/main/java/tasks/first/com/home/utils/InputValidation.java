@@ -3,7 +3,7 @@ package tasks.first.com.home.utils;
 import java.util.Scanner;
 
 public final class InputValidation {
-    private static Scanner scanner = new Scanner(System.in);
+    private static final Scanner scanner = new Scanner(System.in);
 
     private InputValidation() {
 
