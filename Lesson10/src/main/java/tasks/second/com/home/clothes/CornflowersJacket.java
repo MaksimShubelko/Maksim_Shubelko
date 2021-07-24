@@ -1,7 +1,7 @@
 package tasks.second.com.home.clothes;
 
+import tasks.first.com.home.utils.Printer;
 import tasks.second.com.home.utils.Clothes;
-import tasks.second.com.home.utils.Printer;
 
 public class CornflowersJacket extends Jacket implements IJacket {
     @Override

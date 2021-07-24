@@ -1,9 +1,9 @@
 package tasks.second.com.home.controller;
 
+import tasks.first.com.home.utils.Printer;
 import tasks.second.com.home.clothes.*;
 import tasks.second.com.home.model.Person;
 import tasks.second.com.home.utils.InputValidation;
-import tasks.second.com.home.utils.Printer;
 
 public class Main {
 

@@ -2,8 +2,8 @@ package tasks.third.com.home.model;
 
 import lombok.Getter;
 import lombok.Setter;
+import tasks.first.com.home.utils.Printer;
 import tasks.third.com.home.utils.IStart;
-import tasks.third.com.home.utils.Printer;
 
 @Setter
 @Getter

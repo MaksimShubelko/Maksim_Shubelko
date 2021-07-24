@@ -1,8 +1,8 @@
 package tasks.third.com.home.model;
 
+import tasks.first.com.home.utils.Printer;
 import tasks.third.com.home.utils.Constants;
 import tasks.third.com.home.utils.IStart;
-import tasks.third.com.home.utils.Printer;
 
 import java.util.Random;
 
