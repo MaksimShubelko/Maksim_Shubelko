@@ -9,18 +9,18 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
     </properties>
 
     <packaging>pom</packaging>
 
     <modules>
-        <module>Lesson6/pop.xml</module>
-        <module>Lesson7/pom.tld</module>
-        <module>Lesson8/pom.xml</module>
-        <module>Lesson6/pom.tld</module>
-        <module>Lesson7/pom.tld</module>
+        <module>Lesson6</module>
+        <module>Lesson7</module>
+        <module>Lesson8</module>
+        <module>Lesson6</module>
+        <module>Lesson7</module>
     </modules>
 
     <dependencies>
