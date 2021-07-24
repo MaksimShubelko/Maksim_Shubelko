@@ -3,11 +3,11 @@ package tasks.second.com.home.model;
 import lombok.ToString;
 import tasks.second.com.home.clothes.IClothes;
 
-import java.util.HashSet;
+import java.util.ArrayList;
 
 @ToString
 public class Person {
-    private HashSet<IClothes> clothes = new HashSet<>();
+    private final ArrayList<IClothes> clothes = new ArrayList<>();
 
     public void takeOff() {
         for (IClothes clothes : clothes) {

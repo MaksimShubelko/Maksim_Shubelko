@@ -28,7 +28,7 @@ public class Main {
                     createRobotsParts();
                     break;
                 case 2:
-                    Printer.print(Seller.findMostExpensive(fitter.getRobots()));
+                    Printer.print(RobotService.findMostExpensive(fitter.getRobots()));
                     break;
                 case 3:
                     action();

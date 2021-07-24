@@ -11,12 +11,13 @@ public class SonyLeg extends Leg implements ILeg {
         super(price);
     }
 
-
     @Override
     public String step() {
         return Actions.SONY_LEG_MOVES.getAction();
     }
 
-
+    public void action() {
+        step();
+    }
 }
 

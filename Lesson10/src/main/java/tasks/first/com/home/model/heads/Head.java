@@ -2,9 +2,9 @@ package tasks.first.com.home.model.heads;
 
 import lombok.Getter;
 import lombok.Setter;
+import tasks.first.com.home.model.Types;
 import tasks.first.com.home.utils.Hash;
 import tasks.first.com.home.utils.IRobotsPart;
-import tasks.first.com.home.utils.Types;
 
 @Getter
 @Setter
@@ -16,17 +16,12 @@ public abstract class Head implements IRobotsPart {
     }
 
     @Override
-    public boolean equals(Object o) {
-        return this.hashCode() == o.hashCode();
-    }
-
-    @Override
     public int hashCode() {
         return Hash.HEAD_HASH.ordinal();
     }
 
     @Override
-    public int getType() {
-        return Types.IHead.ordinal();
+    public Types getType() {
+        return Types.Head;
     }
 }

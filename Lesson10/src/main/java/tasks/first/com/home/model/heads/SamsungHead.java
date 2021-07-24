@@ -17,5 +17,9 @@ public class SamsungHead extends Head implements IHead {
         return Actions.SAMSUNG_HEAD_SAYS.getAction();
     }
 
+    public void action() {
+        speak();
+    }
+
 
 }

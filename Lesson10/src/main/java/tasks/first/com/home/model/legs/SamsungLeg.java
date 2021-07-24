@@ -17,6 +17,9 @@ public class SamsungLeg extends Leg implements ILeg {
         return Actions.SAMSUNG_LEG_MOVES.getAction();
     }
 
+    public void action() {
+        step();
+    }
 
 }
 

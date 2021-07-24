@@ -12,6 +12,8 @@ public class ToshibaLeg extends Leg implements ILeg {
         return Actions.TOSHIBA_LEG_MOVES.getAction();
     }
 
-
+    public void action() {
+        step();
+    }
 }
 

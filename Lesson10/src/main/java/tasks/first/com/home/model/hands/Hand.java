@@ -3,7 +3,7 @@ package tasks.first.com.home.model.hands;
 import lombok.Setter;
 import tasks.first.com.home.utils.Hash;
 import tasks.first.com.home.utils.IRobotsPart;
-import tasks.first.com.home.utils.Types;
+import tasks.first.com.home.model.Types;
 
 @Setter
 public abstract class Hand implements IRobotsPart {
@@ -11,11 +11,6 @@ public abstract class Hand implements IRobotsPart {
 
     public Hand(double price) {
         this.price = price;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        return this.hashCode() == o.hashCode();
     }
 
     @Override
@@ -28,8 +23,8 @@ public abstract class Hand implements IRobotsPart {
     }
 
     @Override
-    public int getType() {
-        return Types.IHand.ordinal();
+    public Types getType() {
+        return Types.Hand;
     }
 
 }

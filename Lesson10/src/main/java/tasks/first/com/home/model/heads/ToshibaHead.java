@@ -17,5 +17,7 @@ public class ToshibaHead extends Head implements IHead {
         return Actions.TOSHIBA_HEAD_SAYS.getAction();
     }
 
-
+    public void action() {
+        speak();
+    }
 }

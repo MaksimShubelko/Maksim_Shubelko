@@ -18,5 +18,7 @@ public class SonyHead extends Head implements IHead {
         return Actions.SONY_HEAD_SAYS.getAction();
     }
 
-
+    public void action() {
+        speak();
+    }
 }

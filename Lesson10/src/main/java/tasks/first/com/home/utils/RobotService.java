@@ -6,9 +6,9 @@ import tasks.first.com.home.model.Robot;
 import java.util.ArrayList;
 
 @Setter
-public final class Seller {
+public final class RobotService {
 
-    private Seller() {
+    private RobotService() {
 
     }
 
