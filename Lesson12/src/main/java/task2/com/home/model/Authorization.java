@@ -18,12 +18,12 @@ public abstract class Authorization implements IAuthorization {
                 throw new WrongLoginException(wrongLoginMessage);
             } else if (!password.matches(passLoginFormat) || !password.equals(confirmPassword)) {
                 throw new WrongPasswordException(wrongPasswordMessage);
+            } else {
+                isOkay = true;
             }
-            isOkay = true;
         } catch (Exception exception) {
             Printer.print(exception.getMessage());
-        } finally {
-            return isOkay;
         }
+        return isOkay;
     }
 }
