@@ -28,7 +28,6 @@ public final class InputValidation {
         double enterDouble = -1;
 
         while (enterDouble < 0) {
-
             while (!scanner.hasNextDouble()) {
                 System.out.println("Это не число! ");
                 scanner.next();
