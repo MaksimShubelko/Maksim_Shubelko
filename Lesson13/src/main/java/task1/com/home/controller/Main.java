@@ -13,9 +13,8 @@ public class Main {
 
     public static void main(String[] args) {
         int chose;
-        while (true) {
-            String result = "";
 
+        while (true) {
             Printer.print("Выберите действие:\n1 -- ввести текст" +
                     "\n2 -- вырезать подстроку из строки первого " +
                     "вхождения символа char1 до последнего вхождения символа char2 " +
@@ -28,22 +27,19 @@ public class Main {
                     text = scanner.nextLine();
                     break;
                 case 2:
-                    result = cutSubstring(text);
+                    Printer.print(cutSubstring(text));
                     break;
                 case 3:
-                    result = changeChar(text);
+                    Printer.print(changeChar(text));
                     break;
                 case 4:
-                    result = findPalindromes(text);
+                    Printer.print(findPalindromes(text));
                     break;
                 case 5:
-                    result = findSentences(text);
+                    Printer.print(findSentences(text));
                     break;
                 default:
                     Printer.print("Такого варианта ответа нет");
-            }
-            if (chose > 1) {
-                Printer.print(result);
             }
         }
     }
