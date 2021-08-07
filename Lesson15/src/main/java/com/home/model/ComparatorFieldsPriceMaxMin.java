@@ -1,6 +1,5 @@
-package com.home.service;
+package com.home.model;
 
-import com.home.model.Product;
 import com.home.utils.TypesSorts;
 
 public class ComparatorFieldsPriceMaxMin extends ComparatorFields {
@@ -14,5 +13,4 @@ public class ComparatorFieldsPriceMaxMin extends ComparatorFields {
     public TypesSorts typeCompare() {
         return TypesSorts.ComparePriceMaxMin;
     }
-
 }

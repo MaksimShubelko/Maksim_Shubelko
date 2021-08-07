@@ -1,6 +1,5 @@
-package com.home.service;
+package com.home.model;
 
-import com.home.model.Product;
 import com.home.utils.TypesSorts;
 
 import java.util.ArrayList;
