@@ -34,7 +34,7 @@ public class Shop {
     }
 
     public void delete(int id) {
-        products.remove(id);
+        products.entrySet().removeIf(entry -> entry.getKey() == id);
     }
 
     public void edit(int id, Product product) {
