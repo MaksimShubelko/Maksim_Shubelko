@@ -1,5 +1,6 @@
-package com.home.model;
+package com.home.utils;
 
+import com.home.model.Product;
 import com.home.utils.TypesSorts;
 
 public interface IComparator {
