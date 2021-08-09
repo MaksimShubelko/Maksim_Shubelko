@@ -23,7 +23,12 @@ public class Main {
         sorter.setCompares(new ComparatorFieldsPriceMinMax());
         try {
             while (loop) {
-                Printer.print("Выберите действие:\n1 -- вывести\n2 -- добавить\n3 -- удалить\n4 -- редактировать");
+                Printer.print("Выберите действие:" +
+                        "\n1 -- вывести" +
+                        "\n2 -- добавить" +
+                        "\n3 -- удалить" +
+                        "\n4 -- редактировать" +
+                        "\n5 -- выход");
                 chose = InputValidation.checkInt();
                 switch (chose) {
                     case 1:
@@ -55,7 +60,10 @@ public class Main {
         boolean loop = true;
 
         while (loop) {
-            Printer.print("Выверите сортировку:\n1 -- в порядке добавления (вначале новые, затем старые)\n2 -- по цене (от минимальной до максимальной)\n3 -- по цене (от максимальной до минимальной)");
+            Printer.print("Выверите сортировку:" +
+                    "\n1 -- в порядке добавления (вначале новые, затем старые)" +
+                    "\n2 -- по цене (от минимальной до максимальной)" +
+                    "\n3 -- по цене (от максимальной до минимальной)");
             chose = InputValidation.checkInt();
             switch (chose) {
                 case 1:
