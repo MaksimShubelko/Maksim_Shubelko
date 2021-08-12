@@ -15,9 +15,10 @@ public class Sorter implements Sortable {
     }
 
     public LinkedHashMap<Integer, Product> sort(Map<Integer, Product> products) {
-        return products.entrySet().stream().sorted((m, c) ->
-                sortChose(m.getValue(), c.getValue())).collect(LinkedHashMap::new,
-                (m, c) -> m.put(c.getKey(), c.getValue()),
-                LinkedHashMap::putAll);
+        return products
+                .entrySet()
+                .stream()
+                .sorted((m, c) -> sortChose(m.getValue(), c.getValue()))
+                .collect(LinkedHashMap::new, (m, c) -> m.put(c.getKey(), c.getValue()), LinkedHashMap::putAll);
     }
 }
