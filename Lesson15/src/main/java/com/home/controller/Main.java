@@ -1,12 +1,9 @@
 package com.home.controller;
 
-import com.home.utils.ComparatorFieldsPriceMaxMin;
-import com.home.utils.ComparatorFieldsPriceMinMax;
+import com.home.utils.*;
 import com.home.model.Product;
 import com.home.model.Shop;
 import com.home.model.Sorter;
-import com.home.utils.Printer;
-import com.home.utils.TypesSorts;
 import tasks.first.com.home.utils.InputValidation;
 
 import java.util.Scanner;
@@ -19,8 +16,6 @@ public class Main {
 
     public static void main(String[] args) {
         boolean loop = true;
-        sorter.setCompares(new ComparatorFieldsPriceMaxMin());
-        sorter.setCompares(new ComparatorFieldsPriceMinMax());
         try {
             while (loop) {
                 Printer.print("Выберите действие:" +
@@ -32,7 +27,8 @@ public class Main {
                 chose = InputValidation.checkInt();
                 switch (chose) {
                     case 1:
-                        Printer.print(shop.get(choseSorting(), sorter));
+                        choseSorting();
+                        Printer.print(shop.get(sorter));
                         break;
                     case 2:
                         shop.add(addNewProduct());
@@ -55,7 +51,7 @@ public class Main {
         }
     }
 
-    public static TypesSorts choseSorting() {
+    public static void choseSorting() {
         TypesSorts typeSorts = null;
         boolean loop = true;
 
@@ -67,13 +63,13 @@ public class Main {
             chose = InputValidation.checkInt();
             switch (chose) {
                 case 1:
-                    typeSorts = TypesSorts.CompareAddingNewOld;
+                    sorter.setComparator(new ComparatorFieldsPriceNewOld());
                     break;
                 case 2:
-                    typeSorts = TypesSorts.ComparePriceMinMax;
+                    sorter.setComparator(new ComparatorFieldsPriceMinMax());
                     break;
                 case 3:
-                    typeSorts = TypesSorts.ComparePriceMaxMin;
+                    sorter.setComparator(new ComparatorFieldsPriceMaxMin());
                     break;
                 default:
                     Printer.print("Некорректные данные");
@@ -81,8 +77,6 @@ public class Main {
             }
             loop = false;
         }
-
-        return typeSorts;
     }
 
     public static Product addNewProduct() {
@@ -102,13 +96,11 @@ public class Main {
 
     public static int deleteProduct() {
         Printer.print("Введите id товара для удаления");
-
         return InputValidation.checkInt();
     }
 
     public static int choseProductToEdit() {
         Printer.print("Введите id товара для редактирования");
-
         return InputValidation.checkInt();
     }
 }

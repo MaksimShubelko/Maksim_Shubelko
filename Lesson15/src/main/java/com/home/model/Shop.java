@@ -1,8 +1,5 @@
 package com.home.model;
 
-import com.home.utils.TypesSorts;
-
-import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -14,13 +11,12 @@ public class Shop {
         if (!products.containsKey(product)) {
             products.putIfAbsent(id, product);
         }
-
     }
 
-    public String get(TypesSorts typesSorts, Sorter sorter) {
+    public String get(Sorter sorter) {
         StringBuilder productString = new StringBuilder();
 
-        for (Product product : sorter.sort(typesSorts, products).values()) {
+        for (Product product : sorter.sort(products).values()) {
             productString.append("id: ")
                     .append(product.getId())
                     .append("\nName: ")
@@ -29,7 +25,6 @@ public class Shop {
                     .append(product.getPrice())
                     .append("\n\n");
         }
-
         return productString.toString();
     }
 
@@ -42,6 +37,5 @@ public class Shop {
             products.replace(id, product);
         }
     }
-
 }
 
