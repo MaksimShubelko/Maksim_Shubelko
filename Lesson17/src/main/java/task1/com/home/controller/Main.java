@@ -18,7 +18,7 @@ public class Main {
 
         result.append("Коллекция вначале: ")
                 .append(collectionInTheBegin)
-                .append("Коллекция после изменения: ")
+                .append("\nКоллекция после изменения: ")
                 .append(collectionAfterChanges.toString());
         Printer.print(result.toString());
     }

@@ -1,7 +1,7 @@
 package task2.com.home.controller;
 
+import task1.com.home.utils.GeneratorNumbers;
 import task2.com.home.model.CalculatorCountOfNumbers;
-import task2.com.home.utils.GeneratorNumbers;
 import tasks.first.com.home.utils.InputValidation;
 import tasks.first.com.home.utils.Printer;
 
@@ -14,7 +14,7 @@ public class Main {
         StringBuilder result = new StringBuilder();
         int countOfEvenNumbers = calculatorCountOfNumbers.calculateCountOfEven(generatorMenu());
 
-        result.append("Количество чётных чисел в аотоке данных равно: ")
+        result.append("Количество чётных чисел в потоке данных равно: ")
                 .append(countOfEvenNumbers);
         Printer.print(result.toString());
     }
