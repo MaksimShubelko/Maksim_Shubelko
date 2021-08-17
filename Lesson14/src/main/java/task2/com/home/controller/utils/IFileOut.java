@@ -1,6 +1,4 @@
-package task1.com.home.utils;
-
-import java.util.List;
+package task2.com.home.utils;
 
 public interface IFileOut {
     static void fileOut() {

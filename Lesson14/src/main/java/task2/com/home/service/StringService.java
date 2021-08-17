@@ -2,7 +2,7 @@ package task2.com.home.service;
 
 import task2.com.home.utils.Parser;
 import task2.com.home.utils.StringExceptions;
-import task1.com.home.utils.TextFormatter;
+import task2.com.home.utils.TextFormatter;
 import task2.com.home.exceptions.StringListException;
 
 import java.util.ArrayList;

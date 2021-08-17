@@ -1,6 +1,6 @@
 package task2.com.home.model;
 
-import task1.com.home.utils.Printer;
+import task2.com.home.utils.Printer;
 import task2.com.home.utils.AuthorizationMessages;
 import task2.com.home.exceptions.WrongLoginException;
 import task2.com.home.exceptions.WrongPasswordException;

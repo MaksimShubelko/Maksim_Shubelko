@@ -4,30 +4,34 @@ import lombok.Getter;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+import java.util.Scanner;
 import java.util.stream.Collectors;
 
 @Getter
 public class WorkersService {
-    private ArrayList<Worker> workers = new ArrayList<>();
+    private List<Worker> workers;
 
     public void addWorker(Worker worker) {
         workers.add(worker);
     }
 
-    public int calculateCountNamesWithFirstLetter(char firstLetterOfName) {
-        return (int) workers
+    public Optional<String> calculateCountNamesWithFirstLetter(char firstLetterOfName) {
+        Optional<String> result = Optional.of();
+        return result
                 .stream()
-                .filter(worker -> Character.toString(worker
+                .filter(workers -> Character.toString(workers
                         .getName()
                         .charAt(0))
                         .equals(Character.toString(firstLetterOfName)))
-                .count();
+                .isEmpty(new String("Нет значений"));
+
     }
 
     public List<String> takeFirstLetters() {
         return workers
                 .stream()
-                .sorted((o1, o2)-> o1.getName().compareTo(o2.getName()))
+                .sorted((o1, o2) -> o1.getName().compareTo(o2.getName()))
                 .map(worker -> Character.toString(worker.getName().charAt(0)))
                 .collect(Collectors.toList());
     }

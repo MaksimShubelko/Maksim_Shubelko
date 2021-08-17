@@ -1,10 +1,10 @@
-package task1.com.home.controller;
+package task2.com.home.controller;
 
 import task1.com.home.service.StringService;
-import task1.com.home.utils.FileIn;
-import task1.com.home.utils.FileOut;
-import task1.com.home.utils.FilesPaths;
-import task1.com.home.utils.Printer;
+import task2.com.home.utils.FileIn;
+import task2.com.home.utils.FileOut;
+import task2.com.home.utils.FilesPaths;
+import task2.com.home.utils.Printer;
 
 import java.util.List;
 

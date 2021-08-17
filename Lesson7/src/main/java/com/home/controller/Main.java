@@ -5,7 +5,6 @@ import com.home.model.Civil;
 import com.home.model.Military;
 import com.home.model.Passenger;
 import com.home.utils.InputValidation;
-import com.home.utils.Printer;
 
 import java.util.Scanner;
 

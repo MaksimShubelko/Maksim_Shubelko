@@ -1,8 +1,5 @@
-package task1.com.home.utils;
+package task2.com.home.utils;
 
-import task2.com.home.utils.Parser;
-
-import java.util.Arrays;
 import java.util.List;
 
 public abstract class TextFormatter {

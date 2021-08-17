@@ -1,4 +1,4 @@
-package task1.com.home.model;
+package task2.com.home.model;
 
 import task1.com.home.exceptions.CarCantStart;
 

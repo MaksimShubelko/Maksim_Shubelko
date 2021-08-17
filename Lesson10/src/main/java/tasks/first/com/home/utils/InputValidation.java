@@ -10,9 +10,9 @@ public final class InputValidation {
     }
 
     public static int checkInt() {
-        int enterInt = 0;
+        int enterInt = -1;
 
-        while (enterInt < 1) {
+        while (enterInt < 0) {
 
             while (!scanner.hasNextInt()) {
                 System.out.println("Это не число! ");

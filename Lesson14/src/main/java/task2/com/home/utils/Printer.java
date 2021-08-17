@@ -1,4 +1,4 @@
-package task1.com.home.utils;
+package task2.com.home.utils;
 
 
 public abstract class Printer {

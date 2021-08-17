@@ -2,7 +2,6 @@ package task2.com.home.utils;
 
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
-import task1.com.home.utils.Printer;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;

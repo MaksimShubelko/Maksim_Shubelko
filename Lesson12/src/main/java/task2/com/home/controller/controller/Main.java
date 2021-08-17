@@ -1,9 +1,9 @@
-package task1.com.home.controller;
+package task2.com.home.controller;
 
-import task1.com.home.model.Car;
+import task2.com.home.model.Car;
 import task1.com.home.service.CarService;
-import task1.com.home.utils.InputValidation;
-import task1.com.home.utils.Printer;
+import task2.com.home.utils.InputValidation;
+import task2.com.home.utils.Printer;
 
 import java.util.Scanner;
 
