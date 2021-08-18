@@ -8,12 +8,12 @@ import tasks.first.com.home.utils.Printer;
 import java.util.Scanner;
 
 public class Main {
-    private static WorkersService workersService = new WorkersService();
-    private static Scanner scanner = new Scanner(System.in);
+    private static final WorkersService workersService = new WorkersService();
+    private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
         boolean loop = true;
-        int chose = 0;
+        int chose;
         while (loop) {
             Printer.print("Выберите действие:" +
                     "\n1 -- добавить рабочего" +
@@ -29,7 +29,7 @@ public class Main {
                     String letter = enterLetter();
                     Printer.print(letter + " - "
                             +
-                            workersService.calculateCountNamesWithFirstLetter(letter) + " рабочих");
+                            workersService.calculateCountNamesWithFirstLetter(letter));
                     break;
                 case 3:
                     Printer.print(workersService.makeTotalResult());
@@ -53,6 +53,6 @@ public class Main {
 
     public static String enterLetter() {
         Printer.print("Введите первую букву имени: ");
-        return scanner.nextLine().substring(0);
+        return scanner.nextLine();
     }
 }
