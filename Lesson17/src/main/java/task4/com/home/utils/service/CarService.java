@@ -16,8 +16,7 @@ public class CarService {
     public List<Car> getCars(int lastYearOfRealise) {
         return cars
                 .stream()
-                .filter(car -> car.getCarNumber() != null)
-                .filter(car -> !car.getCarNumber().isBlank())
+                .filter(car -> !car.getCarNumber().isBlank() || car != null)
                 .filter(car -> car.getYearOfRealise() >= lastYearOfRealise)
                 .collect(Collectors.toList());
     }

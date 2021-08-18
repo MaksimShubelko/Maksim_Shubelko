@@ -1,31 +1,30 @@
 package task5.com.home.model;
 
 import lombok.Getter;
+import tasks.first.com.home.utils.Printer;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
-import java.util.Scanner;
 import java.util.stream.Collectors;
 
 @Getter
 public class WorkersService {
-    private List<Worker> workers;
+    private ArrayList<Worker> workers = new ArrayList<>();
 
     public void addWorker(Worker worker) {
         workers.add(worker);
     }
 
-    public Optional<String> calculateCountNamesWithFirstLetter(char firstLetterOfName) {
-        Optional<String> result = Optional.of();
-        return result
+    public Optional<String> calculateCountNamesWithFirstLetter(String firstLetterOfName) {
+        Optional<String> result = Optional.of(workers
                 .stream()
-                .filter(workers -> Character.toString(workers
-                        .getName()
-                        .charAt(0))
-                        .equals(Character.toString(firstLetterOfName)))
-                .isEmpty(new String("Нет значений"));
-
+                .filter(Objects::nonNull)
+                .map(Worker::getName)
+                .filter(name -> name.startsWith(firstLetterOfName))
+                .collect(Collectors.joining(", ")));
+        return result;
     }
 
     public List<String> takeFirstLetters() {

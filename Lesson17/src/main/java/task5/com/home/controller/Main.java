@@ -26,9 +26,10 @@ public class Main {
                     workersService.addWorker(createWorker());
                     break;
                 case 2:
-                    char letter = enterLetter();
+                    String letter = enterLetter();
                     Printer.print(letter + " - "
-                            + workersService.calculateCountNamesWithFirstLetter(letter) + " рабочих");
+                            +
+                            workersService.calculateCountNamesWithFirstLetter(letter) + " рабочих");
                     break;
                 case 3:
                     Printer.print(workersService.makeTotalResult());
@@ -50,8 +51,8 @@ public class Main {
         return new Worker(name);
     }
 
-    public static char enterLetter() {
+    public static String enterLetter() {
         Printer.print("Введите первую букву имени: ");
-        return scanner.nextLine().charAt(0);
+        return scanner.nextLine().substring(0);
     }
 }
