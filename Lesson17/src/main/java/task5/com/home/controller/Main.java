@@ -30,7 +30,7 @@ public class Main {
                     String letter = enterLetter();
                     Printer.print(letter + " - "
                             +
-                            CheckerOptional.checkOptional(workersService.findNamesWithFirstLetter(letter)));
+                            CheckerOptional.checkOptionalString(workersService.findNamesWithFirstLetter(letter)));
                     break;
                 case 3:
                     Printer.print(workersService.makeTotalResult());

@@ -1,5 +1,6 @@
 package task6.com.home.controller;
 
+import task5.com.home.utils.CheckerOptional;
 import task6.com.home.model.Book;
 import task6.com.home.model.EmailAddress;
 import task6.com.home.model.Reader;
@@ -9,7 +10,7 @@ import tasks.first.com.home.utils.InputValidation;
 import tasks.first.com.home.utils.Printer;
 
 public class Main {
-    private static Library library = new Library();
+    private static final Library library = new Library();
 
     public static void main(String[] args) {
         boolean loop = true;
@@ -44,10 +45,10 @@ public class Main {
                     Printer.print(Boolean.toString(library.isBorrowedAuthorsBook(enterAuthorName())));
                     break;
                 case 6:
-                    Printer.print(library.maxCountOfBorrowedBooks().toString());
+                    Printer.print(CheckerOptional.checkOptionalInteger(library.maxCountOfBorrowedBooks()).toString());
                     break;
                 case 7:
-                    Printer.print(library.divideEmailIntoGroups().toString());
+                    library.sendingMessageReturningBooks();
                     break;
                 case 8:
                     Printer.print(library.makeStringOfFullNameFromGroups());

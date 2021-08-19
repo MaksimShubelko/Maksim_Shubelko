@@ -8,16 +8,15 @@ import task6.com.home.utils.CountOfBorrowedBooksComparator;
 import task6.com.home.utils.GroupsReaders;
 import task6.com.home.utils.GroupsReadersEmails;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Library {
     private static final ArrayList<Reader> readers = new ArrayList<>();
     private static final ArrayList<Book> books = new ArrayList<>();
     private static final SendingService sendingService = new SendingService();
+    private static GroupsReadersEmails groupsReadersEmails = new GroupsReadersEmails();
+    private static GroupsReaders groupsReaders = new GroupsReaders();
 
     public void addBookToLibrary(Book book) {
         books.add(book);
@@ -38,7 +37,7 @@ public class Library {
         sendingService.sendEmailMessageToAll(readers
                 .stream()
                 .map(Reader::getEmailAddress)
-                .map(emailAddress -> emailAddress.getEmail())
+                .map(EmailAddress::getEmail)
                 .collect(Collectors.toList()));
     }
 
@@ -64,15 +63,14 @@ public class Library {
                 .anyMatch(book -> book.getAuthor().equals(author));
     }
 
-    public Integer maxCountOfBorrowedBooks() {
+    public Optional<Integer> maxCountOfBorrowedBooks() {
         return readers
                 .stream()
                 .map(reader -> reader.getBorrowedBooks().size())
-                .max(new CountOfBorrowedBooksComparator()).get();
+                .max(new CountOfBorrowedBooksComparator());
     }
 
     public GroupsReadersEmails divideEmailIntoGroups() {
-        GroupsReadersEmails groupsReadersEmails = new GroupsReadersEmails();
 
         groupsReadersEmails.setOkGroupEmails(readers
                 .stream()
@@ -89,9 +87,7 @@ public class Library {
     }
 
     public GroupsReaders getReadersFromGroups() {
-        GroupsReaders groupsReaders = new GroupsReaders();
-        GroupsReadersEmails groupsReadersEmails = divideEmailIntoGroups();
-
+        divideEmailIntoGroups();
         groupsReaders.setOkGroupReaders(readers
                 .stream()
                 .filter(reader -> groupsReadersEmails.getOkGroupEmails().contains(reader.getEmailAddress()))
@@ -100,13 +96,16 @@ public class Library {
                 .stream()
                 .filter(reader -> groupsReadersEmails.getTooMuchGroupEmails().contains(reader.getEmailAddress()))
                 .collect(Collectors.toList()));
-        sendingService.sendEmailMessageToGroups(groupsReadersEmails);
+
         return groupsReaders;
     }
 
-    public String makeStringOfFullNameFromGroups() {
-        GroupsReaders groupsReaders = getReadersFromGroups();
+    public void sendingMessageReturningBooks() {
+        sendingService.sendEmailMessageToGroups(divideEmailIntoGroups());
+    }
 
+    public String makeStringOfFullNameFromGroups() {
+        getReadersFromGroups();
         StringBuilder result = new StringBuilder();
         result
                 .append("Ok: {")
@@ -116,8 +115,8 @@ public class Library {
                         .filter(Objects::nonNull)
                         .map(Reader::getFullName)
                         .collect(Collectors.joining(", ")));
-        result.append("}");
         result
+                .append("}")
                 .append("\nTOO_MUCH: {").append(groupsReaders
                 .getTooMuchGroupReaders()
                 .stream()
