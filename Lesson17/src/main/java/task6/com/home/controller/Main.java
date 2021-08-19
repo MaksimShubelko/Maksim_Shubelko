@@ -1,38 +1,58 @@
 package task6.com.home.controller;
 
-import task4.com.home.utils.model.Car;
-import task4.com.home.utils.service.CarService;
+import task6.com.home.model.Book;
+import task6.com.home.model.EmailAddress;
+import task6.com.home.model.Reader;
+import task6.com.home.service.Library;
+import task6.com.home.utils.EmailChecker;
 import tasks.first.com.home.utils.InputValidation;
 import tasks.first.com.home.utils.Printer;
 
-import java.util.Scanner;
-
 public class Main {
-    private static CarService carService = new CarService();
-    private static Scanner scanner = new Scanner(System.in);
+    private static Library library = new Library();
 
     public static void main(String[] args) {
         boolean loop = true;
-        int chose = 0;
+        int chose;
 
         while (loop) {
             Printer.print("Выберите действие:" +
-                    "\n1 -- создать машину без номера" +
-                    "\n2 -- создать машину с номером (в т.ч. пустым)" +
-                    "\n3 -- поиск машины с непустыми номерами" +
-                    "\n4 -- выход\n");
+                    "\n1 -- добавить книгу" +
+                    "\n2 -- добавить читателя" +
+                    "\n3 -- получить отсортированный список книг" +
+                    "\n4 -- оповестить всех о закрытии библиотеки" +
+                    "\n5 -- посмотреть на руках ли книга" +
+                    "\n6 -- посмотреть наибольшее число взятых книг" +
+                    "\n7 -- оповестить о возврате книг" +
+                    "\n8 -- получить ФИО читателей по группам" +
+                    "\n9 -- выход");
             chose = InputValidation.checkInt();
             switch (chose) {
                 case 1:
-                    carService.addCar(new Car(addYearOfCarRealise()));
+                    library.addBookToLibrary(addBook());
                     break;
                 case 2:
-                    carService.addCar(new Car(addCarNumber(), addYearOfCarRealise()));
+                    library.addReaderToLibrary(addReader());
                     break;
                 case 3:
-                    Printer.print(carService.getCars(enterMinYearOfRealiseToFinding()).toString());
+                    Printer.print(library.takeSortedListOfAllBooks().toString());
                     break;
                 case 4:
+                    library.libraryClosedMailing();
+                    break;
+                case 5:
+                    Printer.print(Boolean.toString(library.isBorrowedAuthorsBook(enterAuthorName())));
+                    break;
+                case 6:
+                    Printer.print(library.maxCountOfBorrowedBooks().toString());
+                    break;
+                case 7:
+                    Printer.print(library.divideEmailIntoGroups().toString());
+                    break;
+                case 8:
+                    Printer.print(library.makeStringOfFullNameFromGroups());
+                    break;
+                case 9:
                     loop = false;
                     break;
                 default:
@@ -41,18 +61,46 @@ public class Main {
         }
     }
 
-    public static String addCarNumber() {
-        Printer.print("Введите номер машины:");
-        return scanner.nextLine();
+    public static Book addBook() {
+        Book book = new Book();
+        Printer.print("Введите автора книги:");
+        book.setAuthor(InputValidation.checkString());
+        Printer.print("Введите название книги:");
+        book.setTitle(InputValidation.checkString());
+        Printer.print("Введите год издания");
+        book.setYearRealise(InputValidation.checkInt());
+        return book;
     }
 
-    public static int addYearOfCarRealise() {
-        Printer.print("Введите год выпуска машины:");
-        return InputValidation.checkInt();
+    public static Reader addReader() {
+        Reader reader = new Reader();
+        Printer.print("Введите ФИО читателя");
+        reader.setFullName(InputValidation.checkString());
+        Printer.print("Введите email читателя");
+        reader.setEmailAddress(new EmailAddress(EmailChecker.checkEmail(InputValidation.checkString())));
+        Printer.print("Добавить книги читателю");
+        addBookToReader(reader);
+        Printer.print("Подтвердить согласие на рассылку");
+        reader.setConsentMailingList(InputValidation.checkBoolean());
+        return reader;
     }
 
-    public static int enterMinYearOfRealiseToFinding() {
-        Printer.print("Введите минимальный год выпуска машины для поиска:");
-        return InputValidation.checkInt();
+    public static void addBookToReader(Reader reader) {
+        int chose;
+        while (true) {
+            Printer.print("1 -- добавить книгу\n2 -- выход");
+            chose = InputValidation.checkInt();
+            switch (chose) {
+                case 1:
+                    reader.addBookToReader(addBook());
+                    break;
+                case 2:
+                    return;
+            }
+        }
+    }
+
+    public static String enterAuthorName() {
+        return InputValidation.checkString();
     }
 }

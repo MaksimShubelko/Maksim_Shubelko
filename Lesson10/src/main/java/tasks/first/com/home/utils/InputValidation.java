@@ -38,4 +38,26 @@ public final class InputValidation {
 
         return enterDouble;
     }
+
+    public static String checkString() {
+        Scanner scanner = new Scanner(System.in);
+        String string = scanner.nextLine();
+        if (string.equals("\n")) {
+            return scanner.nextLine();
+        }
+        return string;
+    }
+
+    public static boolean checkBoolean() {
+        boolean enterBoolean = true;
+
+        while (!scanner.hasNextBoolean()) {
+            System.out.println("Это не логическое значение! ");
+            scanner.next();
+        }
+        enterBoolean = scanner.nextBoolean();
+
+
+        return enterBoolean;
+    }
 }

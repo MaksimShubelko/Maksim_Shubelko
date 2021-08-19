@@ -1,6 +1,5 @@
 package task6.com.home.model;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data

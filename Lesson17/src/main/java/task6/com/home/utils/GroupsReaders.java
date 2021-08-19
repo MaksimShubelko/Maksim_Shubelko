@@ -7,6 +7,6 @@ import java.util.List;
 
 @Data
 public class GroupsReaders {
-    private List<Reader> okGroupFullNames;
-    private List<Reader> tooMuchGroupFullNames;
+    private List<Reader> okGroupReaders;
+    private List<Reader> tooMuchGroupReaders;
 }

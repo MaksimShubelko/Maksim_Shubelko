@@ -13,13 +13,13 @@ public class WorkersService {
         workers.add(worker);
     }
 
-    public Optional<String> calculateCountNamesWithFirstLetter(String firstLetterOfName) {
-        return Optional.of(workers
+    public Optional<String> findNamesWithFirstLetter(String firstLetterOfName) {
+        return workers
                 .stream()
                 .filter(Objects::nonNull)
                 .map(Worker::getName)
                 .filter(name -> name.startsWith(firstLetterOfName))
-                .collect(Collectors.joining(", ")));
+                .reduce((a,b) -> a + ", " + b);
     }
 
     public List<String> takeFirstLetters() {

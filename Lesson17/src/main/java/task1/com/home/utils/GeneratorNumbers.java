@@ -4,7 +4,7 @@ import java.util.Random;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-public abstract class GeneratorNumbers {
+public abstract class GeneratorNumbers implements IGeneratorNumbers{
 
     public static Set<Integer> generateNumbers(int minNumb, int maxNumb, int countOfNumbers) {
         return new Random()

@@ -2,6 +2,7 @@ package task5.com.home.controller;
 
 import task5.com.home.model.Worker;
 import task5.com.home.model.WorkersService;
+import task5.com.home.utils.CheckerOptional;
 import tasks.first.com.home.utils.InputValidation;
 import tasks.first.com.home.utils.Printer;
 
@@ -29,7 +30,7 @@ public class Main {
                     String letter = enterLetter();
                     Printer.print(letter + " - "
                             +
-                            workersService.calculateCountNamesWithFirstLetter(letter));
+                            CheckerOptional.checkOptional(workersService.findNamesWithFirstLetter(letter)));
                     break;
                 case 3:
                     Printer.print(workersService.makeTotalResult());
