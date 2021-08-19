@@ -26,7 +26,10 @@ public class Main {
                     "\n6 -- посмотреть наибольшее число взятых книг" +
                     "\n7 -- оповестить о возврате книг" +
                     "\n8 -- получить ФИО читателей по группам" +
-                    "\n9 -- выход");
+                    "\n9 -- отсортировать email по группам" +
+                    "\n10 -- отсортировать ФИО по группам" +
+                    "\n11 -- получить email тех, у кого много книг" +
+                    "\n12 -- выход");
             chose = InputValidation.checkInt();
             switch (chose) {
                 case 1:
@@ -54,6 +57,14 @@ public class Main {
                     Printer.print(library.makeStringOfFullNameFromGroups());
                     break;
                 case 9:
+                    library.divideEmailIntoGroups();
+                    break;
+                case 10:
+                    library.getReadersFromGroups();
+                    break;
+                case 11:
+                    Printer.print(library.tooMuchBooksGetEmails().toString());
+                case 12:
                     loop = false;
                     break;
                 default:

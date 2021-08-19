@@ -15,8 +15,8 @@ public class Library {
     private static final ArrayList<Reader> readers = new ArrayList<>();
     private static final ArrayList<Book> books = new ArrayList<>();
     private static final SendingService sendingService = new SendingService();
-    private static GroupsReadersEmails groupsReadersEmails = new GroupsReadersEmails();
-    private static GroupsReaders groupsReaders = new GroupsReaders();
+    private static final GroupsReadersEmails groupsReadersEmails = new GroupsReadersEmails();
+    private static final GroupsReaders groupsReaders = new GroupsReaders();
 
     public void addBookToLibrary(Book book) {
         books.add(book);
@@ -70,7 +70,7 @@ public class Library {
                 .max(new CountOfBorrowedBooksComparator());
     }
 
-    public GroupsReadersEmails divideEmailIntoGroups() {
+    public void divideEmailIntoGroups() {
 
         groupsReadersEmails.setOkGroupEmails(readers
                 .stream()
@@ -82,11 +82,9 @@ public class Library {
                 .filter(readers -> readers.getBorrowedBooks().size() > 1)
                 .map(Reader::getEmailAddress)
                 .collect(Collectors.toList()));
-
-        return groupsReadersEmails;
     }
 
-    public GroupsReaders getReadersFromGroups() {
+    public void getReadersFromGroups() {
         divideEmailIntoGroups();
         groupsReaders.setOkGroupReaders(readers
                 .stream()
@@ -96,35 +94,28 @@ public class Library {
                 .stream()
                 .filter(reader -> groupsReadersEmails.getTooMuchGroupEmails().contains(reader.getEmailAddress()))
                 .collect(Collectors.toList()));
-
-        return groupsReaders;
     }
 
     public void sendingMessageReturningBooks() {
-        sendingService.sendEmailMessageToGroups(divideEmailIntoGroups());
+        sendingService.sendEmailMessageToGroups(groupsReadersEmails);
     }
 
     public String makeStringOfFullNameFromGroups() {
-        getReadersFromGroups();
-        StringBuilder result = new StringBuilder();
-        result
-                .append("Ok: {")
-                .append(groupsReaders
+
+        return "Ok: {" +
+                groupsReaders
                         .getOkGroupReaders()
                         .stream()
                         .filter(Objects::nonNull)
                         .map(Reader::getFullName)
-                        .collect(Collectors.joining(", ")));
-        result
-                .append("}")
-                .append("\nTOO_MUCH: {").append(groupsReaders
+                        .collect(Collectors.joining(", ")) +
+                "}" +
+                "\nTOO_MUCH: {" + groupsReaders
                 .getTooMuchGroupReaders()
                 .stream()
                 .filter(Objects::nonNull)
                 .map(Reader::getFullName)
-                .collect(Collectors.joining(", ")));
-        result.append("}");
-
-        return result.toString();
+                .collect(Collectors.joining(", ")) +
+                "}";
     }
 }
