@@ -10,7 +10,6 @@ public class SendingService {
 
     public void sendEmailMessageToAll(List<String> emails) {
 
-
         emails
                 .stream()
                 .forEach(email -> mailService
