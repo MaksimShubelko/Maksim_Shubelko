@@ -2,9 +2,9 @@ package task2.com.home.controller;
 
 import task2.com.home.utils.FileIn;
 import task2.com.home.utils.FileOut;
-import task1.com.home.utils.InputValidation;
+import task2.com.home.utils.InputValidation;
 import task2.com.home.utils.FilesPaths;
-import task1.com.home.utils.Printer;
+import task2.com.home.utils.Printer;
 import task2.com.home.service.StringService;
 import java.util.List;
 

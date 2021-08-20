@@ -1,11 +1,9 @@
 package task5.com.home.controller;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import task1.com.home.utils.Printer;
+import task2.com.home.utils.Printer;
 import task5.com.home.model.Car;
 import task5.com.home.utils.JsonReader;
 
-import java.io.File;
 import java.io.IOException;
 
 public class Main {

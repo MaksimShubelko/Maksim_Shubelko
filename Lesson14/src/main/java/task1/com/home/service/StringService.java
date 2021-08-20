@@ -1,8 +1,8 @@
 package task1.com.home.service;
 
 import task1.com.home.exceptions.StringPalindromesException;
-import task1.com.home.utils.StringExceptions;
-import task1.com.home.utils.TextFormatter;
+import task2.com.home.utils.StringExceptions;
+import task2.com.home.utils.TextFormatter;
 
 import java.util.ArrayList;
 import java.util.List;

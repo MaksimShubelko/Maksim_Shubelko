@@ -1,7 +1,7 @@
 package task3.com.home.controller;
 
 import task2.com.home.utils.FileIn;
-import task1.com.home.utils.Printer;
+import task2.com.home.utils.Printer;
 import task2.com.home.utils.Parser;
 import task3.com.home.model.CheckCensorship;
 import task3.com.home.utils.FilesPaths;

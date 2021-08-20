@@ -1,9 +1,6 @@
 package task2.com.home.controller;
 
-import task1.com.home.utils.Printer;
-import task2.com.home.exceptions.WrongLoginException;
-import task2.com.home.exceptions.WrongPasswordException;
-import task2.com.home.model.Authorization;
+import task2.com.home.utils.Printer;
 
 import java.util.Scanner;
 
