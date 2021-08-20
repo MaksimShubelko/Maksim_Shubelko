@@ -9,9 +9,13 @@ public class SendingService {
     private static MailService mailService = new MailService();
 
     public void sendEmailMessageToAll(List<String> emails) {
-            emails
-                    .stream()
-                    .forEach(email -> mailService.sendMessages(email, Constants.title, Constants.libraryClosedMessage));
+
+
+        emails
+                .stream()
+                .forEach(email -> mailService
+                        .sendMessages(email, Constants.title, Constants.libraryClosedMessage));
+
     }
 
     public void sendEmailMessageToGroups(GroupsReadersEmails emails) {
