@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 @Getter
 @Setter
 @RequiredArgsConstructor
-public class Buyer extends Thread {
+public class Buyer extends Thread implements IBuyer {
     private ArrayList<Product> products = new ArrayList<>();
     @NonNull
     private Semaphore sem;
