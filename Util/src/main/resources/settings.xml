@@ -1,0 +1,12 @@
+<settings>
+    <servers>
+        <server>
+            <id>packagecloud.releases</id>
+            <password>b14b71f7fc2200f53d859286c09e1006dff642c85541a662</password>
+        </server>
+        <server>
+            <id>packagecloud.snapshots</id>
+            <password>b14b71f7fc2200f53d859286c09e1006dff642c85541a662</password>
+        </server>
+    </servers>
+</settings>
